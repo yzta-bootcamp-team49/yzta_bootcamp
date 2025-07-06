@@ -9,10 +9,15 @@ Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
 --Takım Rolleri:
     Sıla Sönmez	Scrum Master/ Developer
+    
     Kerem ÖZCAN	Product Owner/ Developer
+    
     Gül KARAMAN	Developer
+    
     Oğuzhan Yusuf TOZLU	Developer
+    
     Süleyman SARDOĞAN Developer
+    
     
 --Ürün İsmi
 Alzheimer & Parkinson Ses Analiz Web Uygulaması
