@@ -8,6 +8,7 @@ Alzheimer & Parkinson Ses Analiz Web Uygulaması
 --Takım İsmi : Grup 49
 
 --Takım Rolleri:
+
     Sıla Sönmez	Scrum Master/ Developer
     
     Kerem ÖZCAN	Product Owner/ Developer
