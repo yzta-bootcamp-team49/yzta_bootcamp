@@ -75,9 +75,12 @@ Projenin temel amacı ve hedef kitlesi belirlendi.
 
 📌Daily/Weekly Scrum:
 Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
-![WhatsApp Görsel 2025-07-06 saat 21 17 51_ca19652f](https://github.com/user-attachments/assets/6151888d-cc88-4c6b-a58c-f1fa8d46cda7)
 
-![WhatsApp Görsel 2025-07-06 saat 21 19 05_26b67292](https://github.com/user-attachments/assets/41266241-daa2-4fdd-bc48-9af5c3e59007)
+![WhatsApp Görsel 2025-07-06 saat 21 17 51_33609bbd](https://github.com/user-attachments/assets/b3fa3ee2-2aef-4bc6-a7ac-6e7008f22d05)
+
+![WhatsApp Görsel 2025-07-06 saat 21 19 05_b14a8320](https://github.com/user-attachments/assets/5e6b30a4-2405-4e62-99e5-7c2a6cff4e9e)
+
+![image](https://github.com/user-attachments/assets/0c5c8b2c-a160-434f-8cc5-424550b7c795)
 
 
 📌Screenshot
