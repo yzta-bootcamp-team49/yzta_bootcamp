@@ -48,6 +48,7 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
 
 --⚙️ Teknik Detaylar
+
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
 •	Frontend: Bootstrap 5, Jinja2 HTML şablonları
