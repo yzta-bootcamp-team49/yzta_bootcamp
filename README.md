@@ -1,5 +1,5 @@
 # yzta_bootcamp
-![WhatsApp Görsel 2025-06-28 saat 22 13 05_4b9ec352](https://github.com/user-attachments/assets/48350c34-859a-47a9-b187-82c714649e32)
+
 Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
 🚀 Proje Başlangıç Bilgileri
@@ -75,10 +75,9 @@ Projenin temel amacı ve hedef kitlesi belirlendi.
 
 📌Daily/Weekly Scrum:
 Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
+![WhatsApp Görsel 2025-07-06 saat 21 17 51_ca19652f](https://github.com/user-attachments/assets/6151888d-cc88-4c6b-a58c-f1fa8d46cda7)
 
-![image](https://github.com/user-attachments/assets/675e3d37-9c73-45fe-bc53-39744a3680ca)
-
-![image](https://github.com/user-attachments/assets/29f2e3f8-bb48-4332-9074-d0ccf86dfcc3)
+![WhatsApp Görsel 2025-07-06 saat 21 19 05_26b67292](https://github.com/user-attachments/assets/41266241-daa2-4fdd-bc48-9af5c3e59007)
 
 ![image](https://github.com/user-attachments/assets/fa6187b4-cdeb-4e47-af88-7fcae9f48f68)
 
