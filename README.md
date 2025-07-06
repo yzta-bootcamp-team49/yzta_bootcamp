@@ -83,9 +83,9 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 ![image](https://github.com/user-attachments/assets/fa6187b4-cdeb-4e47-af88-7fcae9f48f68)
 
 📌Screenshot
-![image](https://github.com/user-attachments/assets/21ce3267-320d-4cae-af23-b3f351278743)
+![image](https://github.com/user-attachments/assets/4daf1af7-e78d-4df3-80f3-d426c0c94068)
 
-![image](https://github.com/user-attachments/assets/9f4b8fa5-561e-417d-9f54-ba6c4d98b0ea)
+![image](https://github.com/user-attachments/assets/4201f202-9987-4ce4-b6b0-70d2839b4373)
 
 ![image](https://github.com/user-attachments/assets/d00e86f1-76cc-4d5b-a172-cc2a79e0d172)
 
