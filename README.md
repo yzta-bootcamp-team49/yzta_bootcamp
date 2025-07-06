@@ -21,12 +21,15 @@ Alzheimer & Parkinson Ses Analiz Web Uygulaması
     
     
 --Ürün İsmi
+
 Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
 --Ürün Açıklaması
+
 Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine yardımcı olmak amacıyla geliştirilmiştir. Kullanıcılar ses kayıtlarını sisteme yükleyerek yapay zeka destekli analiz gerçekleştirebilir. Analiz sonucunda kullanıcılara risk skoru ve açıklayıcı geri bildirimler sunulur. Tüm süreç kullanıcı dostu, modern bir web arayüzü ile yönetilir.
 
 --Ürün Özellikleri
+
 •	Kullanıcı kayıt ve giriş sistemi
 •	Ses dosyası yükleme ve işleme
 •	Google Gemini API ile yapay zeka destekli analiz
@@ -37,6 +40,7 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	 Şifre güvenliği (bcrypt ile hash) ve oturum yönetimi
 
 --Hedef Kitle
+
 •	 Nörolojik hastalıklar için ön tanı almak isteyen bireyler
 •	Alzheimer/Parkinson hastalığı geçmişi olan kullanıcılar
 •	 Doktorlar, klinikler ve sağlık uzmanları
