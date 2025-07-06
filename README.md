@@ -48,26 +48,49 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	Dosya Yönetimi: audio_uploads/ klasöründe UUID ile isimlendirilmiş dosya yapısı
 •	Çevresel Değişkenler: .env içinde saklanır (GEMINI_API_KEY,SECRET_KEY)
 
-📝 Sprint 1 Notları
---Tahmin Edilen Tamamlanacak Puan:
+📝 Sprint 1
+
+📌Tahmin Edilen Tamamlanacak Puan:
 Toplam 21 puanlık iş hedeflenmiştir. Puanlama Planning Poker yöntemi ile belirlenmiştir.
 
---Tahmin Mantığı:
+📌Tahmin Mantığı:
 Sprint başında kullanıcı hikayeleri detaylı olarak analiz edildi. Karmaşıklık, bağımlılık ve yapılabilirlik kriterlerine göre Planning Poker yöntemi ile puanlama yapıldı. API bağlantısı, ses işleme ve analiz işlemleri yüksek karmaşıklıkta olduğundan daha fazla puanla değerlendirildi.
 
---Daily/Weekly Scrum:
+
+📌 Sprint Notları
+Projenin temel amacı ve hedef kitlesi belirlendi.
+- Takım üyeleri arasında görev dağılımı yapıldı.
+- Kullanıcı hikayeleri (user story) oluşturularak **Product Backlog** içine yazıldı.
+
+
+📌Daily/Weekly Scrum:
 Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
+![image](https://github.com/user-attachments/assets/675e3d37-9c73-45fe-bc53-39744a3680ca)
+![image](https://github.com/user-attachments/assets/29f2e3f8-bb48-4332-9074-d0ccf86dfcc3)
+![image](https://github.com/user-attachments/assets/fa6187b4-cdeb-4e47-af88-7fcae9f48f68)
+
 Screenshot
 ![image](https://github.com/user-attachments/assets/21ce3267-320d-4cae-af23-b3f351278743)
 ![image](https://github.com/user-attachments/assets/9f4b8fa5-561e-417d-9f54-ba6c4d98b0ea)
 ![image](https://github.com/user-attachments/assets/d00e86f1-76cc-4d5b-a172-cc2a79e0d172)
 
---Sprint Review:
+📌 Sprint 1 Board
+
+| ✅ Done                      |  🛠 In Progress                         | 📋 To Do                |
+|------------------------------ |---------------------------|---------------------------------------|
+| FastAPI backend               | İstatistik sayfası        | API request optimizasyonu             |
+|  Sonuç ekranı                 | Geçmiş analiz ekranı      | Admin paneli                          |
+|                               |   Ses yükleme ve analiz   |        
+
+
+
+📌Sprint Review:
 Sprint 1 sonunda gerçekleştirilen Sprint Review toplantısında, geliştirilen modüller takım üyeleri tarafından demo edilmiştir. Kullanıcı arayüzü üzerinden kayıt ve giriş süreçlerinin başarıyla tamamlandığı, ses dosyalarının yüklendiği ve analiz sonucunda alınan risk skorlarının kullanıcıya sunulabildiği görülmüştür. Özellikle API bağlantısı ve analiz sonuçlarının görsel sunumu beğeni toplamıştır.
 Ancak, geçmiş analizleri listeleme ve istatistik ekranlarının geliştirilmesi sprint süresi içinde tamamlanamamıştır. Bu modüller için geri bildirimler toplanmış, eksik kalan özelliklerin Sprint 2 kapsamına alınmasına karar verilmiştir.
 Takım üyeleri tarafından geliştirilen ürünün fonksiyonel olduğu, kullanıcı deneyiminin beklentilere uygun ilerlediği, ancak mobil uyumluluk ve istatistik görselleştirmeleri gibi alanlarda gelişime açık olduğu değerlendirilmiştir.
 
---Sprint Retrospective:
+
+📌Sprint Retrospective:
 •	Takım içi iş birliği güçlü şekilde devam ettirilecek.
 •	Günlük toplantılarda elde edilen ilerleme kayıt altına alınacak.
 •	Gelecek sprintlerde tamamlanamayan işler önceliklendirilecek.
