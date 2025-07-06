@@ -79,7 +79,6 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 ![WhatsApp Görsel 2025-07-06 saat 21 19 05_26b67292](https://github.com/user-attachments/assets/41266241-daa2-4fdd-bc48-9af5c3e59007)
 
-![image](https://github.com/user-attachments/assets/fa6187b4-cdeb-4e47-af88-7fcae9f48f68)
 
 📌Screenshot
 ![image](https://github.com/user-attachments/assets/4daf1af7-e78d-4df3-80f3-d426c0c94068)
