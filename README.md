@@ -84,11 +84,15 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 
 📌Screenshot
-![image](https://github.com/user-attachments/assets/4daf1af7-e78d-4df3-80f3-d426c0c94068)
 
-![image](https://github.com/user-attachments/assets/4201f202-9987-4ce4-b6b0-70d2839b4373)
 
-![image](https://github.com/user-attachments/assets/d00e86f1-76cc-4d5b-a172-cc2a79e0d172)
+![image](https://github.com/user-attachments/assets/09ed1ecb-b8f6-48ed-a6a5-bd694d138b94)
+
+![image](https://github.com/user-attachments/assets/d7833a07-48e8-4fcc-96ad-5f570615b311)
+
+![image](https://github.com/user-attachments/assets/0c475c51-0492-4a78-918c-797675b7fede)
+
+
 
 📌 Sprint 1 Board
 
