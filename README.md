@@ -1,7 +1,5 @@
 # yzta_bootcamp
-
 ![WhatsApp Görsel 2025-06-28 saat 22 13 05_4b9ec352](https://github.com/user-attachments/assets/48350c34-859a-47a9-b187-82c714649e32)
-
 Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
 🚀 Proje Başlangıç Bilgileri
@@ -84,7 +82,7 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 ![image](https://github.com/user-attachments/assets/fa6187b4-cdeb-4e47-af88-7fcae9f48f68)
 
-Screenshot
+📌Screenshot
 ![image](https://github.com/user-attachments/assets/21ce3267-320d-4cae-af23-b3f351278743)
 
 ![image](https://github.com/user-attachments/assets/9f4b8fa5-561e-417d-9f54-ba6c4d98b0ea)
