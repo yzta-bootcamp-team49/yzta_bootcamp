@@ -2,6 +2,7 @@
 
 🚀🚀Alzheimer & Parkinson Ses Analiz Web Uygulaması🚀🚀
 
+
 📋 Proje Başlangıç Bilgileri
 
 🎯Takım İsmi : Grup 49
@@ -30,32 +31,51 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 🎯Ürün Özellikleri
 
 •	Kullanıcı kayıt ve giriş sistemi
+
 •	Ses dosyası yükleme ve işleme
+
 •	Google Gemini API ile yapay zeka destekli analiz
+
 •	Risk skoru ve detaylı açıklama sunumu
+
 •	Geçmiş analizlerin görüntülenmesi ve silinmesi
+
 •	 Kullanıcıya özel istatistikler (yüksek/düşük risk sayısı)
+
 •	Responsive, mobil uyumlu tasarım
+
 •	 Şifre güvenliği (bcrypt ile hash) ve oturum yönetimi
 
 🎯Hedef Kitle
 
 •	 Nörolojik hastalıklar için ön tanı almak isteyen bireyler
+
 •	Alzheimer/Parkinson hastalığı geçmişi olan kullanıcılar
+
 •	 Doktorlar, klinikler ve sağlık uzmanları
+
 •	 Sağlık alanında araştırma yapan akademisyenler
+
 •	Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
 
 ⚙️ Teknik Detaylar
 
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
+
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
+
 •	Frontend: Bootstrap 5, Jinja2 HTML şablonları
+
 •	Veritabanı: SQLite (kolay geçişli PostgreSQL mimarisiyle uyumlu)
+
 •	API Entegrasyonu: Google Gemini API ile ses analiz desteği
+
 •	Şifreleme: passlib ile bcrypt hash algoritması
+
 •	Oturum Yönetimi: Starlette SessionMiddleware
+
 •	Dosya Yönetimi: audio_uploads/ klasöründe UUID ile isimlendirilmiş dosya yapısı
+
 •	Çevresel Değişkenler: .env içinde saklanır (GEMINI_API_KEY,SECRET_KEY)
 
 
