@@ -86,20 +86,20 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	Çevresel Değişkenler: .env içinde saklanır (GEMINI_API_KEY,SECRET_KEY)
 
 
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 📝 Sprint 1
 
 📌Tahmin Edilen Tamamlanacak Puan:
 
 Toplam 21 puanlık iş hedeflenmiştir. Puanlama Planning Poker yöntemi ile belirlenmiştir.
-
+--------------------
 
 📌Tahmin Mantığı:
 
 Sprint başında kullanıcı hikayeleri detaylı olarak analiz edildi. Karmaşıklık, bağımlılık ve yapılabilirlik kriterlerine göre Planning Poker yöntemi ile puanlama yapıldı. API bağlantısı, ses işleme ve analiz işlemleri yüksek karmaşıklıkta olduğundan daha fazla puanla değerlendirildi.
-
+--------------------
 
 📌 Sprint Notları:
 
@@ -107,7 +107,7 @@ Sprint başında kullanıcı hikayeleri detaylı olarak analiz edildi. Karmaşı
 - Takım üyeleri arasında görev dağılımı yapıldı.
 - Kullanıcı hikayeleri (user story) oluşturularak **Product Backlog** içine yazıldı.
 
-
+--------------------
 📌Daily/Weekly Scrum:
 
 Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
@@ -119,7 +119,7 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 ![image](https://github.com/user-attachments/assets/0c5c8b2c-a160-434f-8cc5-424550b7c795)
 
-
+--------------------
 📌Screenshot
 
 
@@ -129,7 +129,7 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 ![image](https://github.com/user-attachments/assets/0c475c51-0492-4a78-918c-797675b7fede)
 
-
+--------------------
 
 📌 Sprint 1 Board
 
@@ -140,14 +140,14 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 |                               |   Ses yükleme ve analiz   |        
 
 
-
+--------------------
 📌Sprint Review:
 
 Sprint 1 sonunda gerçekleştirilen Sprint Review toplantısında, geliştirilen modüller takım üyeleri tarafından demo edilmiştir. Kullanıcı arayüzü üzerinden kayıt ve giriş süreçlerinin başarıyla tamamlandığı, ses dosyalarının yüklendiği ve analiz sonucunda alınan risk skorlarının kullanıcıya sunulabildiği görülmüştür. Özellikle API bağlantısı ve analiz sonuçlarının görsel sunumu beğeni toplamıştır.
 Ancak, geçmiş analizleri listeleme ve istatistik ekranlarının geliştirilmesi sprint süresi içinde tamamlanamamıştır. Bu modüller için geri bildirimler toplanmış, eksik kalan özelliklerin Sprint 2 kapsamına alınmasına karar verilmiştir.
 Takım üyeleri tarafından geliştirilen ürünün fonksiyonel olduğu, kullanıcı deneyiminin beklentilere uygun ilerlediği, ancak mobil uyumluluk ve istatistik görselleştirmeleri gibi alanlarda gelişime açık olduğu değerlendirilmiştir.
 
-
+--------------------
 📌Sprint Retrospective:
 
 •	Takım içi iş birliği güçlü şekilde devam ettirilecek.
