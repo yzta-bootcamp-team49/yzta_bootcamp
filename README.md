@@ -3,9 +3,12 @@
 🚀🚀Alzheimer & Parkinson Ses Analiz Web Uygulaması🚀🚀
 
 
+
 📋 Proje Başlangıç Bilgileri
 
+
 🎯Takım İsmi : Grup 49
+
 
 🎯Takım Rolleri:
 
@@ -20,15 +23,17 @@
     Süleyman SARDOĞAN Developer
     
     
-🎯Ürün İsmi
+🎯Ürün İsmi:
 
 Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
-🎯Ürün Açıklaması
+
+🎯Ürün Açıklaması:
 
 Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine yardımcı olmak amacıyla geliştirilmiştir. Kullanıcılar ses kayıtlarını sisteme yükleyerek yapay zeka destekli analiz gerçekleştirebilir. Analiz sonucunda kullanıcılara risk skoru ve açıklayıcı geri bildirimler sunulur. Tüm süreç kullanıcı dostu, modern bir web arayüzü ile yönetilir.
 
-🎯Ürün Özellikleri
+
+🎯Ürün Özellikleri:
 
 •	Kullanıcı kayıt ve giriş sistemi
 
@@ -46,7 +51,8 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 
 •	 Şifre güvenliği (bcrypt ile hash) ve oturum yönetimi
 
-🎯Hedef Kitle
+
+🎯Hedef Kitle:
 
 •	 Nörolojik hastalıklar için ön tanı almak isteyen bireyler
 
@@ -58,7 +64,8 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 
 •	Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
 
-⚙️ Teknik Detaylar
+
+⚙️ Teknik Detaylar:
 
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
 
@@ -83,19 +90,24 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 📝 Sprint 1
 
 📌Tahmin Edilen Tamamlanacak Puan:
+
 Toplam 21 puanlık iş hedeflenmiştir. Puanlama Planning Poker yöntemi ile belirlenmiştir.
 
+
 📌Tahmin Mantığı:
+
 Sprint başında kullanıcı hikayeleri detaylı olarak analiz edildi. Karmaşıklık, bağımlılık ve yapılabilirlik kriterlerine göre Planning Poker yöntemi ile puanlama yapıldı. API bağlantısı, ses işleme ve analiz işlemleri yüksek karmaşıklıkta olduğundan daha fazla puanla değerlendirildi.
 
 
-📌 Sprint Notları
-Projenin temel amacı ve hedef kitlesi belirlendi.
+📌 Sprint Notları:
+
+- Projenin temel amacı ve hedef kitlesi belirlendi.
 - Takım üyeleri arasında görev dağılımı yapıldı.
 - Kullanıcı hikayeleri (user story) oluşturularak **Product Backlog** içine yazıldı.
 
 
 📌Daily/Weekly Scrum:
+
 Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
 
 ![WhatsApp Görsel 2025-07-06 saat 21 17 51_33609bbd](https://github.com/user-attachments/assets/b3fa3ee2-2aef-4bc6-a7ac-6e7008f22d05)
@@ -127,12 +139,14 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 
 📌Sprint Review:
+
 Sprint 1 sonunda gerçekleştirilen Sprint Review toplantısında, geliştirilen modüller takım üyeleri tarafından demo edilmiştir. Kullanıcı arayüzü üzerinden kayıt ve giriş süreçlerinin başarıyla tamamlandığı, ses dosyalarının yüklendiği ve analiz sonucunda alınan risk skorlarının kullanıcıya sunulabildiği görülmüştür. Özellikle API bağlantısı ve analiz sonuçlarının görsel sunumu beğeni toplamıştır.
 Ancak, geçmiş analizleri listeleme ve istatistik ekranlarının geliştirilmesi sprint süresi içinde tamamlanamamıştır. Bu modüller için geri bildirimler toplanmış, eksik kalan özelliklerin Sprint 2 kapsamına alınmasına karar verilmiştir.
 Takım üyeleri tarafından geliştirilen ürünün fonksiyonel olduğu, kullanıcı deneyiminin beklentilere uygun ilerlediği, ancak mobil uyumluluk ve istatistik görselleştirmeleri gibi alanlarda gelişime açık olduğu değerlendirilmiştir.
 
 
 📌Sprint Retrospective:
+
 •	Takım içi iş birliği güçlü şekilde devam ettirilecek.
 •	Günlük toplantılarda elde edilen ilerleme kayıt altına alınacak.
 •	Gelecek sprintlerde tamamlanamayan işler önceliklendirilecek.
