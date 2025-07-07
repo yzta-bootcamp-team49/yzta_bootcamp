@@ -86,6 +86,8 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	Çevresel Değişkenler: .env içinde saklanır (GEMINI_API_KEY,SECRET_KEY)
 
 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 
 📝 Sprint 1
 
@@ -109,6 +111,7 @@ Sprint başında kullanıcı hikayeleri detaylı olarak analiz edildi. Karmaşı
 📌Daily/Weekly Scrum:
 
 Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
+
 
 ![WhatsApp Görsel 2025-07-06 saat 21 17 51_33609bbd](https://github.com/user-attachments/assets/b3fa3ee2-2aef-4bc6-a7ac-6e7008f22d05)
 
