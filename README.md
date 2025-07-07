@@ -9,7 +9,7 @@
 
 🎯Takım İsmi : Grup 49
 
-
+--------------------
 🎯Takım Rolleri:
 
     Sıla Sönmez	Scrum Master/ Developer
@@ -22,17 +22,17 @@
     
     Süleyman SARDOĞAN Developer
     
-    
+--------------------  
 🎯Ürün İsmi:
 
 Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
-
+--------------------
 🎯Ürün Açıklaması:
 
 Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine yardımcı olmak amacıyla geliştirilmiştir. Kullanıcılar ses kayıtlarını sisteme yükleyerek yapay zeka destekli analiz gerçekleştirebilir. Analiz sonucunda kullanıcılara risk skoru ve açıklayıcı geri bildirimler sunulur. Tüm süreç kullanıcı dostu, modern bir web arayüzü ile yönetilir.
 
-
+--------------------
 🎯Ürün Özellikleri:
 
 •	Kullanıcı kayıt ve giriş sistemi
@@ -51,7 +51,7 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 
 •	 Şifre güvenliği (bcrypt ile hash) ve oturum yönetimi
 
-
+--------------------
 🎯Hedef Kitle:
 
 •	 Nörolojik hastalıklar için ön tanı almak isteyen bireyler
@@ -64,7 +64,7 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 
 •	Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
 
-
+--------------------
 ⚙️ Teknik Detaylar:
 
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
