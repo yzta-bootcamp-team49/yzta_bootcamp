@@ -136,12 +136,11 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 📌 Sprint 1 Board
 
-| ✅ Done                      |  🛠 In Progress                         | 📋 To Do                |
-|------------------------------ |---------------------------|---------------------------------------|
-| FastAPI backend               | İstatistik sayfası        | API request optimizasyonu             |
-|  Sonuç ekranı                 | Geçmiş analiz ekranı      | Admin paneli                          |
-|                               |   Ses yükleme ve analiz   |        
+![image](https://github.com/user-attachments/assets/9466dfc7-6d56-4cd8-86de-e4e6296c754f)
 
+
+📌Sprint Backlog URl
+https://miro.com/app/board/uXjVIgwdcec=/
 
 --------------------
 📌Sprint Review:
