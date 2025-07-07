@@ -1,12 +1,12 @@
 # yzta_bootcamp
 
-Alzheimer & Parkinson Ses Analiz Web Uygulaması
+🚀🚀Alzheimer & Parkinson Ses Analiz Web Uygulaması🚀🚀
 
-🚀 Proje Başlangıç Bilgileri
+📋 Proje Başlangıç Bilgileri
 
---Takım İsmi : Grup 49
+🎯Takım İsmi : Grup 49
 
---Takım Rolleri:
+🎯Takım Rolleri:
 
     Sıla Sönmez	Scrum Master/ Developer
     
@@ -19,15 +19,15 @@ Alzheimer & Parkinson Ses Analiz Web Uygulaması
     Süleyman SARDOĞAN Developer
     
     
---Ürün İsmi
+🎯Ürün İsmi
 
 Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
---Ürün Açıklaması
+🎯Ürün Açıklaması
 
 Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine yardımcı olmak amacıyla geliştirilmiştir. Kullanıcılar ses kayıtlarını sisteme yükleyerek yapay zeka destekli analiz gerçekleştirebilir. Analiz sonucunda kullanıcılara risk skoru ve açıklayıcı geri bildirimler sunulur. Tüm süreç kullanıcı dostu, modern bir web arayüzü ile yönetilir.
 
---Ürün Özellikleri
+🎯Ürün Özellikleri
 
 •	Kullanıcı kayıt ve giriş sistemi
 •	Ses dosyası yükleme ve işleme
@@ -38,7 +38,7 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	Responsive, mobil uyumlu tasarım
 •	 Şifre güvenliği (bcrypt ile hash) ve oturum yönetimi
 
---Hedef Kitle
+🎯Hedef Kitle
 
 •	 Nörolojik hastalıklar için ön tanı almak isteyen bireyler
 •	Alzheimer/Parkinson hastalığı geçmişi olan kullanıcılar
@@ -46,7 +46,7 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	 Sağlık alanında araştırma yapan akademisyenler
 •	Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
 
---⚙️ Teknik Detaylar
+⚙️ Teknik Detaylar
 
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
 •	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
@@ -57,6 +57,8 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 •	Oturum Yönetimi: Starlette SessionMiddleware
 •	Dosya Yönetimi: audio_uploads/ klasöründe UUID ile isimlendirilmiş dosya yapısı
 •	Çevresel Değişkenler: .env içinde saklanır (GEMINI_API_KEY,SECRET_KEY)
+
+
 
 📝 Sprint 1
 
