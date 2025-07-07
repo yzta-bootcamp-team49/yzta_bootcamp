@@ -87,18 +87,22 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 
 
 
-°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
 
 📝 Sprint 1
 
 📌Tahmin Edilen Tamamlanacak Puan:
 
 Toplam 21 puanlık iş hedeflenmiştir. Puanlama Planning Poker yöntemi ile belirlenmiştir.
---------------------
 
+--------------------
 📌Tahmin Mantığı:
 
 Sprint başında kullanıcı hikayeleri detaylı olarak analiz edildi. Karmaşıklık, bağımlılık ve yapılabilirlik kriterlerine göre Planning Poker yöntemi ile puanlama yapıldı. API bağlantısı, ses işleme ve analiz işlemleri yüksek karmaşıklıkta olduğundan daha fazla puanla değerlendirildi.
+
 --------------------
 
 📌 Sprint Notları:
