@@ -1,0 +1,73 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="container">
+    <div class="row mb-4">
+        <div class="col-md-8">
+            <div class="card shadow-sm mb-3">
+                <div class="card-body d-flex align-items-center">
+                    <div class="me-4">
+                        <img src="/static/logo.jpeg" width="60"/>
+                    </div>
+                    <div>
+                        <h4 class="mb-0">Hoşgeldiniz, {{ user.first_name }} {{ user.last_name }}</h4>
+                        <div class="text-muted">Yeni Ses Testi Başlat</div>
+                    </div>
+                </div>
+            </div>
+            <form method="post" action="/upload_audio" enctype="multipart/form-data" class="mb-4">
+                <div class="input-group">
+                    <input type="file" class="form-control" name="file" accept="audio/*" required>
+                    <button class="btn btn-primary" type="submit">Yükle & Analiz Et</button>
+                </div>
+            </form>
+            <div class="card shadow-sm">
+                <div class="card-header bg-info text-white">Geçmiş Ses Testleri</div>
+                <div class="card-body p-0">
+                    <table class="table mb-0">
+                        <thead>
+                            <tr>
+                                <th>Tarih</th>
+                                <th>Dosya</th>
+                                <th>Risk Skoru</th>
+                                <th>Analiz</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for r in records %}
+                            <tr>
+                                <td>{{ r.upload_time.strftime('%d.%m.%Y %H:%M') }}</td>
+                                <td><audio controls src="/static/{{ r.filename }}" style="width:120px"></audio></td>
+                                <td>{{ r.risk_score }}</td>
+                                <td>{{ r.analysis }}</td>
+                                <td><a href="/delete/{{ r.id }}" class="btn btn-sm btn-danger">Sil</a></td>
+                            </tr>
+                        {% else %}
+                            <tr><td colspan="5" class="text-center">Kayıt yok</td></tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm mb-3">
+                <div class="card-header">Kullanıcı Bilgileri</div>
+                <div class="card-body">
+                    <div><b>Ad Soyad:</b> {{ user.first_name }} {{ user.last_name }}</div>
+                    <div><b>E-posta:</b> {{ user.email }}</div>
+                    <div><b>Telefon:</b> {{ user.phone }}</div>
+                </div>
+            </div>
+            <div class="card shadow-sm">
+                <div class="card-header">İstatistik</div>
+                <div class="card-body">
+                    <div class="mb-2"><b>Toplam Test:</b> {{ records|length }}</div>
+                    <div class="mb-2"><b>Yüksek Riskli:</b> {{ records|selectattr('risk_score', 'equalto', 'Yüksek')|list|length }}</div>
+                    <div class="mb-2"><b>Düşük Riskli:</b> {{ records|selectattr('risk_score', 'equalto', 'Düşük')|list|length }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 

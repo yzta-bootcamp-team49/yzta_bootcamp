@@ -1,0 +1,6 @@
+venv/
+__pycache__/
+*.pyc
+.env
+audio_uploads/
+app.db 
