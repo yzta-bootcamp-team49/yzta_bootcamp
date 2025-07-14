@@ -1,120 +1,163 @@
-# Alzheimer & Parkinson Ses Analiz Web Uygulaması
+# yzta_bootcamp
 
-Bu proje, Alzheimer ve Parkinson hastalarının ses kayıtlarını analiz ederek erken teşhise yardımcı olmayı amaçlayan, Python (FastAPI) tabanlı, modern ve kullanıcı dostu bir web uygulamasıdır. Kullanıcılar sisteme kayıt olabilir, ses kaydı yükleyip analiz ettirebilir, geçmiş analizlerine erişebilir ve silebilirler. Tüm işlemler tek bir Python projesinde, modern bir arayüzle sunulmaktadır.
+🚀🚀Alzheimer & Parkinson Ses Analiz Web Uygulaması🚀🚀
 
----
 
-## Özellikler
-- **Kullanıcı Kayıt & Giriş:** Ad, soyad, e-posta, telefon ve şifre ile üyelik ve güvenli giriş.
-- **Ses Yükleme & Analiz:** Kullanıcılar ses dosyası yükler, Gemini API ile analiz edilir (risk skoru + detaylı açıklama).
-- **Geçmiş Testler:** Kullanıcıya özel tüm analiz geçmişi ve ses dosyaları saklanır, listelenir ve silinebilir.
-- **Modern Arayüz:** Bootstrap ile responsive, şık ve kolay kullanılabilir arayüz.
-- **Kullanıcıya Özel İstatistikler:** Toplam test, yüksek/düşük riskli test sayısı.
-- **Güvenlik:** Şifreler hashlenir, oturum yönetimi güvenli şekilde yapılır.
-- **Logo ve Renk Uyumu:** Proje logosu ve modern renk paletiyle profesyonel görünüm.
 
----
+📋 Proje Başlangıç Bilgileri
 
-## Kurulum ve Çalıştırma Adımları
 
-Aşağıdaki adımları izleyerek uygulamayı kendi bilgisayarınızda kolayca çalıştırabilirsiniz:
+🎯Takım İsmi : Grup 49
 
-### 1. Proje Klasörüne Girin
-```powershell
-cd C:\Users\User\Desktop\proje_bootcamp\backend
-```
+--------------------
+🎯Takım Rolleri:
 
-### 2. Sanal Ortamı Temizleyin ve Yeniden Oluşturun
-```powershell
-Remove-Item -Recurse -Force venv
-python -m venv venv
-venv\Scripts\activate
-```
+    Sıla Sönmez	Scrum Master/ Developer
+    
+    Kerem ÖZCAN	Product Owner/ Developer
+    
+    Gül KARAMAN	Developer
+    
+    Oğuzhan Yusuf TOZLU	Developer
+    
+    Süleyman SARDOĞAN Developer
+    
+--------------------  
+🎯Ürün İsmi:
 
-### 3. Gerekli Paketleri Yükleyin
-```powershell
-pip install -r requirements.txt
-pip install itsdangerous
-```
+Alzheimer & Parkinson Ses Analiz Web Uygulaması
 
-### 4. .env Dosyasını Oluşturun
-`backend` klasöründe `.env` dosyası açın ve şunları ekleyin:
-```
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-SECRET_KEY=supersecretkey123
-```
+--------------------
+🎯Ürün Açıklaması:
 
-### 5. Veritabanı Tablolarını Oluşturun
-```powershell
-python
-```
-Python konsolunda:
-```python
-from database.db import Base, engine
-import models.user, models.audio
-Base.metadata.create_all(bind=engine)
-exit()
-```
+Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine yardımcı olmak amacıyla geliştirilmiştir. Kullanıcılar ses kayıtlarını sisteme yükleyerek yapay zeka destekli analiz gerçekleştirebilir. Analiz sonucunda kullanıcılara risk skoru ve açıklayıcı geri bildirimler sunulur. Tüm süreç kullanıcı dostu, modern bir web arayüzü ile yönetilir.
 
-### 6. Sunucuyu Başlatın
-```powershell
-uvicorn main:app --reload --port 8080
-```
+--------------------
+🎯Ürün Özellikleri:
 
-### 7. Web Arayüzünü Açın
-Tarayıcıda şu adresi açın:
-```
-http://127.0.0.1:8080/
-```
-veya
-```
-http://localhost:8080/
-```
+•	Kullanıcı kayıt ve giriş sistemi
 
----
+•	Ses dosyası yükleme ve işleme
 
-## Kullanım
-- Kayıt ol, giriş yap, ses yükle, analiz sonucu gör, geçmişi görüntüle ve sil.
-- Hata alırsanız, terminaldeki hata mesajını kontrol edin ve gerekirse yardım alın.
+•	Google Gemini API ile yapay zeka destekli analiz
 
----
+•	Risk skoru ve detaylı açıklama sunumu
 
-## Teknik Detaylar
-- **Backend:** Python, FastAPI, SQLAlchemy, Jinja2, Starlette, Bootstrap
-- **Veritabanı:** SQLite (kolayca PostgreSQL'e geçiş yapılabilir)
-- **API Entegrasyonu:** Google Gemini API (anahtar `.env` dosyasında saklanır)
-- **Şifreleme:** `passlib` ile bcrypt hash
-- **Oturum Yönetimi:** Starlette SessionMiddleware
-- **Dosya Yükleme:** `audio_uploads/` klasöründe saklanır
-- **Statik Dosyalar:** `static/` klasöründe logo ve CSS/JS
-- **HTML Şablonları:** `templates/` klasöründe Jinja2 ile
+•	Geçmiş analizlerin görüntülenmesi ve silinmesi
 
----
+•	 Kullanıcıya özel istatistikler (yüksek/düşük risk sayısı)
 
-## Klasör Yapısı
-```
-backend/
-├── audio_uploads/         # Yüklenen ses dosyaları
-├── database/              # Veritabanı bağlantısı
-├── models/                # SQLAlchemy modelleri
-├── static/                # Logo ve statik dosyalar
-├── templates/             # Jinja2 HTML şablonları
-├── utils/                 # Yardımcı fonksiyonlar (JWT, şifre, Gemini API)
-├── main.py                # FastAPI ana dosya
-├── requirements.txt       # Bağımlılıklar
-├── .env                   # API anahtarı ve gizli anahtarlar
-└── README.md
-```
+•	Responsive, mobil uyumlu tasarım
 
----
+•	 Şifre güvenliği (bcrypt ile hash) ve oturum yönetimi
 
-## Notlar
-- **Gemini API anahtarınızı** güvenli şekilde saklayın, kimseyle paylaşmayın.
-- **Kullanıcı şifreleri** asla düz metin olarak saklanmaz, hashlenir.
-- **Proje logosu** ve renk paleti, arayüzde profesyonel bir görünüm sağlar.
-- **Herhangi bir hata veya geliştirme isteğinizde** issue açabilirsiniz.
+--------------------
+🎯Hedef Kitle:
 
----
+•	 Nörolojik hastalıklar için ön tanı almak isteyen bireyler
 
-## Lisans
-Bu proje eğitim ve araştırma amaçlıdır. Dilerseniz kendi projelerinizde kullanabilirsiniz. 
+•	Alzheimer/Parkinson hastalığı geçmişi olan kullanıcılar
+
+•	 Doktorlar, klinikler ve sağlık uzmanları
+
+•	 Sağlık alanında araştırma yapan akademisyenler
+
+•	Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
+
+--------------------
+⚙️ Teknik Detaylar:
+
+•	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
+
+•	Backend Teknolojisi: Python, FastAPI, SQLAlchemy, Starlette
+
+•	Frontend: Bootstrap 5, Jinja2 HTML şablonları
+
+•	Veritabanı: SQLite (kolay geçişli PostgreSQL mimarisiyle uyumlu)
+
+•	API Entegrasyonu: Google Gemini API ile ses analiz desteği
+
+•	Şifreleme: passlib ile bcrypt hash algoritması
+
+•	Oturum Yönetimi: Starlette SessionMiddleware
+
+•	Dosya Yönetimi: audio_uploads/ klasöründe UUID ile isimlendirilmiş dosya yapısı
+
+•	Çevresel Değişkenler: .env içinde saklanır (GEMINI_API_KEY,SECRET_KEY)
+
+
+
+
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+📝 Sprint 1
+
+📌Tahmin Edilen Tamamlanacak Puan:
+
+Toplam 21 puanlık iş hedeflenmiştir. Puanlama Planning Poker yöntemi ile belirlenmiştir.
+
+--------------------
+📌Tahmin Mantığı:
+
+Sprint başında kullanıcı hikayeleri detaylı olarak analiz edildi. Karmaşıklık, bağımlılık ve yapılabilirlik kriterlerine göre Planning Poker yöntemi ile puanlama yapıldı. API bağlantısı, ses işleme ve analiz işlemleri yüksek karmaşıklıkta olduğundan daha fazla puanla değerlendirildi.
+
+--------------------
+
+📌 Sprint Notları:
+
+- Projenin temel amacı ve hedef kitlesi belirlendi.
+- Takım üyeleri arasında görev dağılımı yapıldı.
+- Kullanıcı hikayeleri (user story) oluşturularak **Product Backlog** içine yazıldı.
+
+--------------------
+📌Daily/Weekly Scrum:
+
+Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
+
+
+![WhatsApp Görsel 2025-07-06 saat 21 17 51_33609bbd](https://github.com/user-attachments/assets/b3fa3ee2-2aef-4bc6-a7ac-6e7008f22d05)
+
+![WhatsApp Görsel 2025-07-06 saat 21 19 05_b14a8320](https://github.com/user-attachments/assets/5e6b30a4-2405-4e62-99e5-7c2a6cff4e9e)
+
+![image](https://github.com/user-attachments/assets/0c5c8b2c-a160-434f-8cc5-424550b7c795)
+
+--------------------
+📌Screenshot
+
+
+![image](https://github.com/user-attachments/assets/09ed1ecb-b8f6-48ed-a6a5-bd694d138b94)
+
+![image](https://github.com/user-attachments/assets/d7833a07-48e8-4fcc-96ad-5f570615b311)
+
+![image](https://github.com/user-attachments/assets/0c475c51-0492-4a78-918c-797675b7fede)
+
+--------------------
+
+📌 Sprint 1 Board
+
+![image](https://github.com/user-attachments/assets/9466dfc7-6d56-4cd8-86de-e4e6296c754f)
+
+
+📌Sprint Backlog URl
+https://miro.com/app/board/uXjVIgwdcec=/
+
+--------------------
+📌Sprint Review:
+
+Sprint 1 sonunda gerçekleştirilen Sprint Review toplantısında, geliştirilen modüller takım üyeleri tarafından demo edilmiştir. Kullanıcı arayüzü üzerinden kayıt ve giriş süreçlerinin başarıyla tamamlandığı, ses dosyalarının yüklendiği ve analiz sonucunda alınan risk skorlarının kullanıcıya sunulabildiği görülmüştür. Özellikle API bağlantısı ve analiz sonuçlarının görsel sunumu beğeni toplamıştır.
+Ancak, geçmiş analizleri listeleme ve istatistik ekranlarının geliştirilmesi sprint süresi içinde tamamlanamamıştır. Bu modüller için geri bildirimler toplanmış, eksik kalan özelliklerin Sprint 2 kapsamına alınmasına karar verilmiştir.
+Takım üyeleri tarafından geliştirilen ürünün fonksiyonel olduğu, kullanıcı deneyiminin beklentilere uygun ilerlediği, ancak mobil uyumluluk ve istatistik görselleştirmeleri gibi alanlarda gelişime açık olduğu değerlendirilmiştir.
+
+--------------------
+📌Sprint Retrospective:
+
+•	Takım içi iş birliği güçlü şekilde devam ettirilecek.
+•	Günlük toplantılarda elde edilen ilerleme kayıt altına alınacak.
+•	Gelecek sprintlerde tamamlanamayan işler önceliklendirilecek.
+•	Kod kalitesinin korunması adına karşılıklı kod gözden geçirme pratiği başlatılacak.
+
+
+
+
+
