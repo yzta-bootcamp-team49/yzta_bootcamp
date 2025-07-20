@@ -243,7 +243,7 @@ Tamamlanan işler:
 
 --------------------
 
-📌Sprint Retrospective:
+📌Sprint 2 Retrospective:
 
 Sprint sonunda gerçekleştirilen takım değerlendirmesinde aşağıdaki görüşler öne çıktı:
 
