@@ -158,6 +158,93 @@ Takım üyeleri tarafından geliştirilen ürünün fonksiyonel olduğu, kullan�
 •	Kod kalitesinin korunması adına karşılıklı kod gözden geçirme pratiği başlatılacak.
 
 
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 
 
+📝 Sprint 2
 
+📌 Tahmin Edilen Tamamlanacak Puan:
+
+Sprint 2 kapsamında toplamda 45 puanlık iş planlanarak geliştirme sürecine dahil edilmiştir.
+Puanlama süreci, ekip içinde karşılıklı değerlendirme ile gerçekleştirilmiş, karmaşık görevler için daha yüksek puan verilmiştir.
+
+--------------------
+
+📌 Tahmin Mantığı:
+
+Sprint planlaması sırasında görevler teknik zorluk, dış bağımlılıklar ve ekip tecrübesi doğrultusunda analiz edilmiştir.
+Ses verisi işleme, analiz ekranı tasarımı ve API bağlantısı gibi modüller, yüksek karmaşıklık ve öncelik taşıdığı için bu sprintte öne çıkarılmıştır. Tahminleme süreci için yine Planning Poker yöntemi kullanılmıştır.
+
+--------------------
+
+📌 Sprint 2 Notları :
+
+-Projede bu sprint itibariyle ses verisi türleri ve sınıflandırma kriterleri netleştirildi.
+
+-Takım üyeleri kendi uzmanlık alanlarına göre iş parçacıklarına yönlendirildi; teknik iş dağılımı optimize edildi.
+
+-Geliştirilecek özelliklere ait kullanıcı hikayeleri güncellendi ve Product Backlog üzerinde detaylandırılarak sıralandı.
+
+--------------------
+
+📌Daily/Weekly Scrum:
+
+Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
+
+
+![WhatsApp Görsel 2025-07-19 saat 00 05 03_5c3d530e](https://github.com/user-attachments/assets/d416f5ff-f726-4170-838a-fb1d487eeae6)
+
+![WhatsApp Görsel 2025-07-19 saat 00 05 18_b83cabc7](https://github.com/user-attachments/assets/4d0baa04-ee73-466f-ac5f-315e0ec25bb4)
+
+![WhatsApp Görsel 2025-07-19 saat 00 05 37_67c804ce](https://github.com/user-attachments/assets/03b091e8-0885-43fd-ac06-98404c275f30)
+
+![WhatsApp Görsel 2025-07-19 saat 00 05 45_fe58b87d](https://github.com/user-attachments/assets/747779a2-7da3-4f7f-b126-d94293312a2e)
+
+--------------------
+
+📌 Sprint 1 Board
+
+<img width="1580" height="377" alt="image" src="https://github.com/user-attachments/assets/b6ef2435-c574-49c4-ae09-14ae5d36a511" />
+
+--------------------
+
+📌Sprint Backlog URl
+https://miro.com/app/board/uXjVIgwdcec=/
+
+--------------------
+
+📌 Sprint 2 Review
+Sprint 2 sonunda planlanan işlerin büyük bir bölümü başarıyla tamamlandı. Özellikle ses verisi işleme alanında önemli teknik ilerlemeler kaydedildi. Mevcut ses veri seti, Voice Activity Detection (VAD) algoritması ile ön işleme tabi tutuldu ve analiz kalitesi artırıldı.
+
+Tamamlanan işler:
+
+• Kullanıcı giriş ve kayıt ekranı canlıya alındı.
+
+• Ses yükleme arayüzü devreye alındı.
+
+• Risk skoru hesaplaması çalışır hale getirildi.
+
+• Ses verilerinden MFCC, Jitter, Shimmer ve HNR gibi öznitelikler başarıyla çıkarıldı.
+
+• Kullanılan sesler Mandarin dilinde olduğundan dil bağımsız bir model yaklaşımı benimsendi.
+
+• Henüz tamamlanamayan bazı modüller (örneğin analiz silme ve geçmiş test listeleme) bir sonraki sprintte önceliklendirilecek.
+
+• Ekip, teknik detayları başarıyla ele almış, hedeflenen ilerleme büyük oranda sağlanmıştır.
+
+
+--------------------
+
+📌Sprint Retrospective:
+
+Sprint sonunda gerçekleştirilen takım değerlendirmesinde aşağıdaki görüşler öne çıktı:
+
+• Ekip içi iletişim ve teknik koordinasyon oldukça başarılıydı.
+
+• Özellikle MFCC ve gelişmiş ses parametreleri (Jitter, Shimmer, HNR) üzerine yapılan çalışmalar, ekip üyelerinin ses işleme konusundaki yetkinliğini artırdı.
+
+• Gerçek zamanlı ses analizi fikri, hem teknik sınırlar hem de zaman yönetimi açısından sprint dışına çıkarıldı (Rejected). Bu karar, kaynakların daha verimli kullanımını sağladı.
+
+• Backend ve frontend geliştirme arasında daha net bir sınır çizilmesi gerektiği fark edildi. Bu doğrultuda görev dağılımı yeniden gözden geçirilecek.
+
+• Kod revizyonları, sprint ortasında yapılacak ara kontrollerle desteklenecek.
