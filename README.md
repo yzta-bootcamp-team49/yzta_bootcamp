@@ -163,6 +163,7 @@ Takım üyeleri tarafından geliştirilen ürünün fonksiyonel olduğu, kullan�
 
 📝 Sprint 2
 
+
 📌 Tahmin Edilen Tamamlanacak Puan:
 
 Sprint 2 kapsamında toplamda 45 puanlık iş planlanarak geliştirme sürecine dahil edilmiştir.
@@ -196,7 +197,7 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 <img width="472" height="504" alt="image" src="https://github.com/user-attachments/assets/d245fbee-62b2-40a7-8588-cffb5a7ab5c0" />
 
-📌ScreenShots:
+📌Screenshot:
 
 ![WhatsApp Görsel 2025-07-19 saat 00 05 03_5c3d530e](https://github.com/user-attachments/assets/d416f5ff-f726-4170-838a-fb1d487eeae6)
 
@@ -208,9 +209,9 @@ Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden e
 
 --------------------
 
-📌 Sprint 1 Board
+📌 Sprint 2 Board:
 
-<img width="1580" height="377" alt="image" src="https://github.com/user-attachments/assets/b6ef2435-c574-49c4-ae09-14ae5d36a511" />
+<img width="1576" height="341" alt="image" src="https://github.com/user-attachments/assets/d6d90a08-49b6-4579-a398-f2319fab007a" />
 
 --------------------
 
@@ -219,7 +220,8 @@ https://miro.com/app/board/uXjVIgwdcec=/
 
 --------------------
 
-📌 Sprint 2 Review
+📌 Sprint 2 Review:
+
 Sprint 2 sonunda planlanan işlerin büyük bir bölümü başarıyla tamamlandı. Özellikle ses verisi işleme alanında önemli teknik ilerlemeler kaydedildi. Mevcut ses veri seti, Voice Activity Detection (VAD) algoritması ile ön işleme tabi tutuldu ve analiz kalitesi artırıldı.
 
 Tamamlanan işler:
