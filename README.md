@@ -192,6 +192,12 @@ Ses verisi işleme, analiz ekranı tasarımı ve API bağlantısı gibi modülle
 Haftanın bir veya iki günü müsaitlik durumuna göre Google Meet üzerinden en az 1 saatlik toplantılar gerçekleştirildi. Aşağıda özet verilmiştir:
 
 
+<img width="431" height="323" alt="image" src="https://github.com/user-attachments/assets/ff031f3f-9646-4661-b539-26cd28a6c9c5" />
+
+<img width="472" height="504" alt="image" src="https://github.com/user-attachments/assets/d245fbee-62b2-40a7-8588-cffb5a7ab5c0" />
+
+📌ScreenShots:
+
 ![WhatsApp Görsel 2025-07-19 saat 00 05 03_5c3d530e](https://github.com/user-attachments/assets/d416f5ff-f726-4170-838a-fb1d487eeae6)
 
 ![WhatsApp Görsel 2025-07-19 saat 00 05 18_b83cabc7](https://github.com/user-attachments/assets/4d0baa04-ee73-466f-ac5f-315e0ec25bb4)
