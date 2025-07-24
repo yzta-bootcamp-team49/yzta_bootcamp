@@ -1,0 +1,2474 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer & Parkinson Ses Analiz Sistemi - Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        /* CSS Variables for Theme */
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --card-bg: #ffffff;
+            --border-color: #dee2e6;
+            --navbar-bg: #0d6efd;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --card-bg: #1e1e1e;
+            --border-color: #404040;
+            --navbar-bg: #1976d2;
+            --shadow: rgba(0, 0, 0, 0.5);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .main-content {
+            flex: 1;
+        }
+        
+        .progress {
+            height: 20px;
+            border-radius: 10px;
+        }
+        
+        .progress-bar {
+            border-radius: 10px;
+        }
+        
+        /* Logo Hover Effect */
+        .navbar-brand img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        }
+        
+        /* Dark Mode Styles */
+        .card {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .navbar {
+            background-color: var(--navbar-bg) !important;
+            transition: background-color 0.3s ease;
+        }
+        
+        .navbar-brand, .navbar-nav .nav-link {
+            color: #ffffff !important;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #e9ecef !important;
+        }
+        
+        .btn-outline-light {
+            border-color: #ffffff !important;
+            color: #ffffff !important;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: #ffffff !important;
+            color: var(--navbar-bg) !important;
+        }
+        
+        .form-control {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        .form-control:focus {
+            background-color: var(--card-bg) !important;
+            border-color: #0d6efd !important;
+            color: var(--text-color) !important;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+        }
+        
+        .form-select {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        .form-select:focus {
+            background-color: var(--card-bg) !important;
+            border-color: #0d6efd !important;
+            color: var(--text-color) !important;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+        }
+        
+        /* Fix dropdown options */
+        [data-theme="dark"] .form-select option {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+        }
+        
+        .table {
+            color: var(--text-color) !important;
+            background-color: var(--card-bg) !important;
+        }
+        
+        .table th, .table td {
+            border-color: var(--border-color) !important;
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+        }
+        
+        .table tbody tr {
+            background-color: var(--card-bg) !important;
+        }
+        
+        .table tbody tr:hover {
+            background-color: var(--border-color) !important;
+        }
+        
+        .table tbody tr:hover td {
+            color: var(--text-color) !important;
+        }
+        
+        .table thead th {
+            background-color: var(--card-bg) !important;
+            border-bottom: 2px solid var(--border-color) !important;
+            color: var(--text-color) !important;
+            font-weight: 600 !important;
+        }
+        
+        /* Ensure all table text is visible */
+        [data-theme="dark"] .table th, 
+        [data-theme="dark"] .table td {
+            color: var(--text-color) !important;
+        }
+        
+        [data-theme="dark"] .table thead th {
+            color: #ffffff !important;
+            background-color: #333333 !important;
+            font-weight: bold !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5) !important;
+        }
+        
+        /* Make sure all table content is visible in dark mode */
+        [data-theme="dark"] .table tbody td {
+            color: #ffffff !important;
+            background-color: var(--card-bg) !important;
+        }
+        
+        [data-theme="dark"] .table tbody tr:hover td {
+            color: #ffffff !important;
+            background-color: #404040 !important;
+        }
+        
+        .alert-info {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        /* Fix text colors in dark mode */
+        [data-theme="dark"] .text-muted {
+            color: #b0b0b0 !important;
+        }
+        
+        [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, 
+        [data-theme="dark"] h4, [data-theme="dark"] h5, [data-theme="dark"] h6 {
+            color: var(--text-color) !important;
+        }
+        
+        [data-theme="dark"] p, [data-theme="dark"] span, [data-theme="dark"] div {
+            color: var(--text-color);
+        }
+        
+        [data-theme="dark"] .badge {
+            color: #ffffff !important;
+        }
+        
+        /* Fix pagination */
+        .page-link {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        .page-link:hover {
+            background-color: var(--border-color) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        .page-item.active .page-link {
+            background-color: #0d6efd !important;
+            border-color: #0d6efd !important;
+            color: #ffffff !important;
+        }
+        
+        .page-item.disabled .page-link {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            color: #6c757d !important;
+        }
+        
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-color);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            background-color: var(--card-bg) !important;
+            border: 1px solid var(--border-color) !important;
+            border-radius: 8px;
+            padding: 15px;
+            color: var(--text-color) !important;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            left: -22px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #007bff;
+            border: 2px solid var(--card-bg);
+        }
+        
+        .timeline-content {
+            background: var(--card-bg) !important;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 3px solid #007bff;
+            color: var(--text-color) !important;
+        }
+        
+        .timeline-date {
+            font-size: 0.875rem;
+            color: var(--text-color) !important;
+            margin-bottom: 5px;
+            opacity: 0.7;
+        }
+        
+        /* Fix all timeline text in dark mode */
+        [data-theme="dark"] .timeline-item h6,
+        [data-theme="dark"] .timeline-item p,
+        [data-theme="dark"] .timeline-item small,
+        [data-theme="dark"] .timeline-content * {
+            color: var(--text-color) !important;
+        }
+        
+        /* Fix progress bars and health insights section */
+        .progress {
+            background-color: var(--border-color) !important;
+        }
+        
+        [data-theme="dark"] .progress {
+            background-color: #404040 !important;
+        }
+        
+        /* Fix any remaining white backgrounds */
+        [data-theme="dark"] .bg-light {
+            background-color: var(--card-bg) !important;
+            color: var(--text-color) !important;
+        }
+        
+        [data-theme="dark"] .text-dark {
+            color: var(--text-color) !important;
+        }
+        
+        /* Fix alert-light class for dark mode */
+        [data-theme="dark"] .alert-light {
+            background-color: var(--card-bg) !important;
+            border-color: var(--border-color) !important;
+            color: var(--text-color) !important;
+        }
+        
+        [data-theme="dark"] .alert-light strong {
+            color: var(--text-color) !important;
+        }
+        
+        /* Ensure gradient card text stays white in both modes */
+        .card[style*="linear-gradient"] * {
+            color: white !important;
+        }
+        
+        .card[style*="linear-gradient"] h3,
+        .card[style*="linear-gradient"] p,
+        .card[style*="linear-gradient"] small,
+        .card[style*="linear-gradient"] i {
+            color: white !important;
+        }
+        
+        /* Specific targeting for statistics gradient cards */
+        [data-theme="dark"] .card[style*="linear-gradient"] *,
+        [data-theme="light"] .card[style*="linear-gradient"] * {
+            color: white !important;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.25rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.jpeg" alt="Logo" class="me-2" style="height: 28px; width: auto; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); object-fit: cover; transition: transform 0.2s ease;">
+                Alzheimer & Parkinson Ses Analizi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto" id="navbar-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#login" onclick="showLogin()">Giriş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register" onclick="showRegister()">Kayıt Ol</a>
+                    </li>
+                </ul>
+                <!-- Button Group: Dark Mode Toggle and Logout -->
+                <div class="d-flex align-items-center ms-2">
+                    <button class="btn btn-outline-light btn-sm me-2" onclick="toggleDarkMode()" id="darkModeToggle" title="Tema Değiştir">
+                        <i class="bi bi-moon-fill" id="darkModeIcon"></i>
+                    </button>
+                    <button class="btn btn-outline-light btn-sm" onclick="logout()" id="logoutButton" style="display: none;" title="Çıkış Yap">
+                        <i class="bi bi-box-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Login Section -->
+        <div id="login-section">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-5">
+                    <div class="card shadow-sm border-0 rounded-3 my-5">
+                        <div class="card-body p-4 p-sm-5">
+                            <div class="text-center mb-4">
+                                <h2 class="fs-4 fw-bold">Alzheimer & Parkinson</h2>
+                                <p class="text-muted">Ses Analiz Sistemine Hoş Geldiniz</p>
+                            </div>
+                            
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label class="form-label">E-posta</label>
+                                    <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Şifre</label>
+                                    <input type="password" class="form-control" placeholder="Şifreniz" required>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">
+                                            Beni hatırla
+                                        </label>
+                                    </div>
+                                    <a href="#" class="text-decoration-none small">Şifremi Unuttum</a>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary btn-lg text-uppercase fw-bold" onclick="login()">
+                                        Giriş Yap
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-4">
+                                <p class="small mb-0">
+                                    Hesabınız yok mu? <a href="#" onclick="showRegister()" class="text-decoration-none fw-semibold">Kayıt Olun</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Section -->
+        <div id="register-section" style="display: none;">
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card shadow-sm border-0 rounded-3 my-5">
+                        <div class="card-body p-4 p-sm-5">
+                            <div class="text-center mb-4">
+                                <h2 class="fs-4 fw-bold">Yeni Hesap Oluşturun</h2>
+                                <p class="text-muted">Alzheimer & Parkinson Ses Analiz Sistemine Kayıt</p>
+                            </div>
+                            
+                            <form id="registerForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Ad</label>
+                                            <input type="text" class="form-control" placeholder="Adınız" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label">Soyad</label>
+                                            <input type="text" class="form-control" placeholder="Soyadınız" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">E-posta</label>
+                                    <input type="email" class="form-control" placeholder="E-posta adresiniz" required>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Telefon Numarası</label>
+                                    <input type="tel" class="form-control" placeholder="05XX XXX XX XX" required>
+                                    <div class="form-text">Telefon numaranızı başında 0 ile birlikte giriniz.</div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label">Şifre</label>
+                                    <input type="password" class="form-control" placeholder="En az 8 karakter" minlength="8" required>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Şifre Tekrar</label>
+                                    <input type="password" class="form-control" placeholder="Şifrenizi tekrar girin" minlength="8" required>
+                                </div>
+                                
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-primary btn-lg text-uppercase fw-bold" onclick="register()">
+                                        Kayıt Ol
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center mt-4">
+                                <p class="small mb-0">
+                                    Zaten hesabınız var mı? <a href="#" onclick="showLogin()" class="text-decoration-none">Giriş Yapın</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard-section" style="display: none;">
+            <div class="text-center mb-5">
+                <h1 class="display-4 fw-bold text-primary">Ana Sayfa</h1>
+                <p class="lead text-muted">
+                    Alzheimer & Parkinson Ses Analiz Sistemine hoş geldiniz. Menüden istediğiniz bölüme geçebilirsiniz.
+                </p>
+            </div>
+
+            <!-- Quick Stats Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-3">
+                    <div class="card bg-primary text-white border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-mic-fill" style="font-size: 2.5rem;"></i>
+                            <h3 class="fw-bold mt-2">0</h3>
+                            <p class="mb-0">Toplam Analiz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-success text-white border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-shield-check" style="font-size: 2.5rem;"></i>
+                            <h3 class="fw-bold mt-2">-</h3>
+                            <p class="mb-0">Son Risk Skoru</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-info text-white border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-calendar-check" style="font-size: 2.5rem;"></i>
+                            <h3 class="fw-bold mt-2">-</h3>
+                            <p class="mb-0">Son Analiz</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-warning text-white border-0 rounded-3">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-graph-up" style="font-size: 2.5rem;"></i>
+                            <h3 class="fw-bold mt-2">-</h3>
+                            <p class="mb-0">Ortalama Risk</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Cards -->
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-3 text-center d-flex flex-column">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <i class="bi bi-mic-fill text-primary mb-3" style="font-size: 3rem;"></i>
+                            <h4 class="fw-bold">Yeni Ses Analizi</h4>
+                            <p class="text-muted mb-4 flex-grow-1">
+                                AI destekli ses analizi başlatın ve risk skorunuzu öğrenin.
+                            </p>
+                            <button class="btn btn-primary btn-lg w-100 mt-auto" onclick="showAnalysis()">
+                                <i class="bi bi-play-circle me-2"></i>Analiz Başlat
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-3 text-center d-flex flex-column">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <i class="bi bi-clock-history text-success mb-3" style="font-size: 3rem;"></i>
+                            <h4 class="fw-bold">Geçmiş Analizler</h4>
+                            <p class="text-muted mb-4 flex-grow-1">
+                                Önceki analizlerinizi görüntüleyin ve karşılaştırın.
+                            </p>
+                            <button class="btn btn-success btn-lg w-100 mt-auto" onclick="showHistory()">
+                                <i class="bi bi-list-ul me-2"></i>Geçmişi Gör
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card h-100 shadow-sm border-0 rounded-3 text-center d-flex flex-column">
+                        <div class="card-body p-4 d-flex flex-column">
+                            <i class="bi bi-bar-chart-fill text-info mb-3" style="font-size: 3rem;"></i>
+                            <h4 class="fw-bold">İstatistikler</h4>
+                            <p class="text-muted mb-4 flex-grow-1">
+                                Kişisel analiz istatistiklerinizi inceleyin.
+                            </p>
+                            <button class="btn btn-info btn-lg w-100 mt-auto" onclick="showStatistics()">
+                                <i class="bi bi-graph-up me-2"></i>İstatistikleri Gör
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="card bg-light border-0 rounded-3">
+                        <div class="card-body p-4">
+                            <h3 class="fw-bold mb-3">Nasıl Çalışır?</h3>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                            <span class="fw-bold">1</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold">Ses Kayıt</h5>
+                                            <p class="text-muted small mb-0">
+                                                Ses dosyanızı sisteme yükleyin veya doğrudan kayıt yapın.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                            <span class="fw-bold">2</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold">AI Analizi</h5>
+                                            <p class="text-muted small mb-0">
+                                                Google Gemini AI ile ses özellikleriniz analiz edilir.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="d-flex align-items-start">
+                                        <div class="bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                            <span class="fw-bold">3</span>
+                                        </div>
+                                        <div>
+                                            <h5 class="fw-bold">Sonuç</h5>
+                                            <p class="text-muted small mb-0">
+                                                Risk skorunuz ve detaylı açıklamalar sunulur.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <!-- Voice Analysis Section -->
+    <div id="analysis-section" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-sm border-0 rounded-3 my-5">
+                    <div class="card-body p-4 p-sm-5">
+                        <!-- Back Arrow -->
+                        <div class="mb-3">
+                            <button class="btn btn-link p-0 text-decoration-none" onclick="showDashboard()" title="Ana Sayfa'ya Dön">
+                                <i class="bi bi-arrow-left-circle-fill text-primary" style="font-size: 1.5rem;"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="text-center mb-4">
+                            <i class="bi bi-mic-fill text-primary" style="font-size: 4rem;"></i>
+                            <h2 class="fw-bold mt-3">Ses Analizi</h2>
+                            <p class="text-muted">Ses dosyanızı yükleyerek AI destekli analiz başlatın</p>
+                        </div>
+                        
+                        <!-- Upload Section -->
+                        <div id="upload-section">
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Ses Dosyası Seçin</label>
+                                <input type="file" class="form-control form-control-lg" id="audioFile" accept="audio/*" onchange="handleFileSelect(event)">
+                                <div class="form-text">Desteklenen formatlar: WAV, MP3, OGG, M4A (Maksimum 10MB)</div>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label fw-semibold">Veya Doğrudan Kayıt Yapın</label>
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-primary btn-lg" id="recordBtn" onclick="toggleRecording()">
+                                        <i class="bi bi-record-circle me-2"></i>Kayıt Başlat
+                                    </button>
+                                </div>
+                                <div id="recordingStatus" class="mt-2 text-center" style="display: none;">
+                                    <div class="spinner-border spinner-border-sm text-danger me-2"></div>
+                                    <span class="text-danger fw-semibold">Kayıt ediliyor... <span id="recordTime">00:00</span></span>
+                                </div>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg" onclick="startAnalysis()" disabled id="analyzeBtn">
+                                    <i class="bi bi-play-circle me-2"></i>Analizi Başlat
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Analysis Progress -->
+                        <div id="analysis-progress" style="display: none;">
+                            <div class="text-center mb-4">
+                                <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;"></div>
+                                <h4 class="mt-3">Analiz Ediliyor...</h4>
+                                <p class="text-muted">Ses dosyanız AI tarafından analiz ediliyor. Bu işlem 1-3 dakika sürebilir.</p>
+                            </div>
+                            <div class="progress mb-3" style="height: 8px;">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" id="progressBar" style="width: 0%"></div>
+                            </div>
+                            <div class="text-center">
+                                <small class="text-muted" id="progressText">Ses dosyası yükleniyor...</small>
+                            </div>
+                        </div>
+
+                        <!-- Analysis Results -->
+                        <div id="analysis-result" style="display: none;">
+                            <div class="alert alert-success border-0 rounded-3 mb-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-8">
+                                        <h4 class="alert-heading fw-bold mb-2">
+                                            <i class="bi bi-check-circle-fill me-2"></i>Analiz Tamamlandı!
+                                        </h4>
+                                        <p class="mb-0">Ses analiziniz başarıyla tamamlandı. Aşağıda detaylı sonuçları inceleyebilirsiniz.</p>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="bg-white rounded-3 p-3">
+                                            <h2 class="fw-bold text-primary mb-1" id="riskScore">45</h2>
+                                            <small class="text-muted">Risk Skoru (0-100)</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row g-4 mb-4">
+                                <div class="col-md-4">
+                                    <div class="card bg-light border-0 text-center">
+                                        <div class="card-body">
+                                            <i class="bi bi-shield-check text-success" style="font-size: 2rem;"></i>
+                                            <h5 class="fw-bold mt-2" id="riskLevel">Düşük Risk</h5>
+                                            <p class="text-muted small mb-0">Risk Seviyesi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-light border-0 text-center">
+                                        <div class="card-body">
+                                            <i class="bi bi-clock text-info" style="font-size: 2rem;"></i>
+                                            <h5 class="fw-bold mt-2" id="analysisTime">2.3s</h5>
+                                            <p class="text-muted small mb-0">Analiz Süresi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-light border-0 text-center">
+                                        <div class="card-body">
+                                            <i class="bi bi-file-earmark-music text-warning" style="font-size: 2rem;"></i>
+                                            <h5 class="fw-bold mt-2" id="fileSize">2.1 MB</h5>
+                                            <p class="text-muted small mb-0">Dosya Boyutu</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="card border-0 rounded-3">
+                                <div class="card-body">
+                                    <h4 class="fw-bold mb-3">
+                                        <i class="bi bi-lightbulb text-warning me-2"></i>AI Analiz Açıklaması
+                                    </h4>
+                                    <p id="analysisExplanation" class="mb-4">
+                                        Ses analiziniz tamamlandı. Konuşma hızınız, ses tonunuz, duraklama süreleri ve diğer akustik özellikler 
+                                        Google Gemini AI tarafından analiz edildi. Sonuçlar mevcut ses özelliklerinizin Alzheimer ve Parkinson 
+                                        hastalıklarının erken belirtileriyle karşılaştırılması sonucu elde edilmiştir.
+                                    </p>
+                                    
+                                    <h5 class="fw-bold mb-3">
+                                        <i class="bi bi-heart-pulse text-danger me-2"></i>Sağlık Önerileri
+                                    </h5>
+                                    <ul class="list-unstyled" id="recommendations">
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                            Düzenli egzersiz yaparak beyin sağlığınızı destekleyin
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                            Dengeli beslenme ile nörolojik sağlığınızı koruyun
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                            Düzenli doktor kontrollerini ihmal etmeyin
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                            Stres yönetimi teknikleri uygulayın
+                                        </li>
+                                        <li class="mb-2">
+                                            <i class="bi bi-check-circle-fill text-success me-2"></i>
+                                            Sosyal aktivitelere katılarak zihinsel aktiviteyi artırın
+                                        </li>
+                                    </ul>
+                                    
+                                    <div class="row g-3 mt-4">
+                                        <div class="col-md-6">
+                                            <button class="btn btn-outline-primary w-100" onclick="resetAnalysis()">
+                                                <i class="bi bi-arrow-repeat me-2"></i>Yeni Analiz Yap
+                                            </button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <button class="btn btn-success w-100" onclick="saveAnalysis()">
+                                                <i class="bi bi-download me-2"></i>Sonuçları Kaydet
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button class="btn btn-outline-secondary" onclick="showDashboard()">
+                                <i class="bi bi-arrow-left me-2"></i>Dashboard'a Dön
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- History Section -->
+    <div id="history-section" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-sm border-0 rounded-3 my-5">
+                    <div class="card-body p-4 p-sm-5">
+                        <!-- Back Arrow -->
+                        <div class="mb-3">
+                            <button class="btn btn-link p-0 text-decoration-none" onclick="showDashboard()" title="Ana Sayfa'ya Dön">
+                                <i class="bi bi-arrow-left-circle-fill text-primary" style="font-size: 1.5rem;"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="text-center mb-4">
+                            <i class="bi bi-clock-history text-success" style="font-size: 4rem;"></i>
+                            <h2 class="fw-bold mt-3">Geçmiş Analizler</h2>
+                            <p class="text-muted">Daha önce yaptığınız ses analizlerini görüntüleyin ve karşılaştırın</p>
+                        </div>
+                        
+                        <!-- Filter and Search -->
+                        <div class="row mb-4">
+                            <div class="col-md-5">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="bi bi-search"></i></span>
+                                    <input type="text" class="form-control" placeholder="Dosya adı ile ara..." id="searchInput">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <select class="form-select" id="riskFilter">
+                                    <option value="all">Tüm Risk Seviyeleri</option>
+                                    <option value="low">Düşük Risk</option>
+                                    <option value="medium">Orta Risk</option>
+                                    <option value="high">Yüksek Risk</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <select class="form-select" id="dateFilter">
+                                    <option value="all">Tüm Tarihler</option>
+                                    <option value="today">Bugün</option>
+                                    <option value="week">Bu Hafta</option>
+                                    <option value="month">Bu Ay</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-outline-secondary w-100" onclick="clearFilters()" title="Tüm filtreleri temizle">
+                                    <i class="bi bi-arrow-clockwise"></i> Temizle
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Analysis Summary -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-12">
+                                <div class="alert alert-info border-0 d-flex align-items-center">
+                                    <i class="bi bi-info-circle-fill me-3" style="font-size: 1.2rem;"></i>
+                                    <div>
+                                        <strong>Toplam <span id="totalAnalyses">5</span> analiz bulundu:</strong>
+                                        <span class="badge bg-success ms-2" id="lowRiskCount">3 Düşük</span>
+                                        <span class="badge bg-warning ms-1" id="mediumRiskCount">2 Orta</span>
+                                        <span class="badge bg-danger ms-1" id="highRiskCount">0 Yüksek</span>
+                                        risk seviyesinde.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Analysis History Table -->
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="table-light">
+                                    <tr>
+                                        <th><i class="bi bi-file-earmark-music me-2"></i>Dosya Adı</th>
+                                        <th><i class="bi bi-calendar me-2"></i>Tarih</th>
+                                        <th><i class="bi bi-speedometer2 me-2"></i>Risk Skoru</th>
+                                        <th><i class="bi bi-shield me-2"></i>Risk Seviyesi</th>
+                                        <th><i class="bi bi-clock me-2"></i>Süre</th>
+                                        <th><i class="bi bi-gear me-2"></i>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="historyTableBody">
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-file-earmark-music text-primary me-2"></i>
+                                                <span>ses_kayit_1.wav</span>
+                                            </div>
+                                        </td>
+                                        <td>24.01.2025 10:30</td>
+                                        <td><span class="fw-bold text-success">25</span></td>
+                                        <td><span class="badge bg-success">Düşük Risk</span></td>
+                                        <td>2.1s</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="viewAnalysisDetail(1)">
+                                                <i class="bi bi-eye"></i> Detay
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteAnalysis(1)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-file-earmark-music text-primary me-2"></i>
+                                                <span>konusma_ornegi.mp3</span>
+                                            </div>
+                                        </td>
+                                        <td>23.01.2025 15:45</td>
+                                        <td><span class="fw-bold text-warning">65</span></td>
+                                        <td><span class="badge bg-warning">Orta Risk</span></td>
+                                        <td>3.2s</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="viewAnalysisDetail(2)">
+                                                <i class="bi bi-eye"></i> Detay
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteAnalysis(2)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-file-earmark-music text-primary me-2"></i>
+                                                <span>test_ses.wav</span>
+                                            </div>
+                                        </td>
+                                        <td>22.01.2025 09:15</td>
+                                        <td><span class="fw-bold text-success">35</span></td>
+                                        <td><span class="badge bg-success">Düşük Risk</span></td>
+                                        <td>1.8s</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="viewAnalysisDetail(3)">
+                                                <i class="bi bi-eye"></i> Detay
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteAnalysis(3)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-file-earmark-music text-primary me-2"></i>
+                                                <span>kayit_2025.m4a</span>
+                                            </div>
+                                        </td>
+                                        <td>21.01.2025 14:20</td>
+                                        <td><span class="fw-bold text-warning">58</span></td>
+                                        <td><span class="badge bg-warning">Orta Risk</span></td>
+                                        <td>2.7s</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="viewAnalysisDetail(4)">
+                                                <i class="bi bi-eye"></i> Detay
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteAnalysis(4)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex align-items-center">
+                                                <i class="bi bi-file-earmark-music text-primary me-2"></i>
+                                                <span>ses_analiz.ogg</span>
+                                            </div>
+                                        </td>
+                                        <td>20.01.2025 11:30</td>
+                                        <td><span class="fw-bold text-success">42</span></td>
+                                        <td><span class="badge bg-success">Düşük Risk</span></td>
+                                        <td>2.5s</td>
+                                        <td>
+                                            <button class="btn btn-sm btn-outline-primary me-1" onclick="viewAnalysisDetail(5)">
+                                                <i class="bi bi-eye"></i> Detay
+                                            </button>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="deleteAnalysis(5)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Pagination -->
+                        <nav aria-label="Sayfa navigasyonu" class="mt-4">
+                            <ul class="pagination justify-content-center">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#">Önceki</a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">3</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">Sonraki</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analysis Detail Modal -->
+    <div class="modal fade" id="analysisDetailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        <i class="bi bi-file-earmark-music text-primary me-2"></i>
+                        Analiz Detayları
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    <!-- Modal content will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+                    <button type="button" class="btn btn-primary" onclick="downloadAnalysisReport()">
+                        <i class="bi bi-download me-2"></i>Raporu İndir
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Statistics Section -->
+    <div id="statistics-section" style="display: none;">
+        <div class="row justify-content-center">
+            <div class="col-lg-11">
+                <div class="card shadow-sm border-0 rounded-3 my-5">
+                    <div class="card-body p-4 p-sm-5">
+                        <!-- Back Arrow -->
+                        <div class="mb-3">
+                            <button class="btn btn-link p-0 text-decoration-none" onclick="showDashboard()" title="Ana Sayfa'ya Dön">
+                                <i class="bi bi-arrow-left-circle-fill text-primary" style="font-size: 1.5rem;"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="text-center mb-4">
+                            <i class="bi bi-bar-chart-fill text-info" style="font-size: 4rem;"></i>
+                            <h2 class="fw-bold mt-3">İstatistiklerim</h2>
+                            <p class="text-muted">Kişisel ses analizi istatistikleriniz ve risk trendleriniz</p>
+                        </div>
+                        
+                        <!-- Overview Cards -->
+                        <div class="row g-4 mb-5">
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                                    <div class="card-body text-center p-4">
+                                        <i class="bi bi-mic-fill" style="font-size: 2.5rem;"></i>
+                                        <h3 class="fw-bold mt-2" id="statsTotalAnalyses">5</h3>
+                                        <p class="mb-0">Toplam Analiz</p>
+                                        <small class="opacity-75">Son 30 gün</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white;">
+                                    <div class="card-body text-center p-4">
+                                        <i class="bi bi-speedometer2" style="font-size: 2.5rem;"></i>
+                                        <h3 class="fw-bold mt-2" id="statsAvgRisk">42</h3>
+                                        <p class="mb-0">Ortalama Risk</p>
+                                        <small class="opacity-75">Tüm analizler</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white;">
+                                    <div class="card-body text-center p-4">
+                                        <i class="bi bi-graph-up-arrow" style="font-size: 2.5rem;"></i>
+                                        <h3 class="fw-bold mt-2" id="statsTrend">-8%</h3>
+                                        <p class="mb-0">Risk Trendi</p>
+                                        <small class="opacity-75">Son aya göre</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="card border-0 shadow-sm" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white;">
+                                    <div class="card-body text-center p-4">
+                                        <i class="bi bi-calendar-check" style="font-size: 2.5rem;"></i>
+                                        <h3 class="fw-bold mt-2" id="statsLastAnalysis">2</h3>
+                                        <p class="mb-0">Gün Önce</p>
+                                        <small class="opacity-75">Son analiz</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Charts Row -->
+                        <div class="row g-4 mb-5">
+                            <!-- Risk Trend Chart -->
+                            <div class="col-lg-8">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-transparent border-0 pb-0">
+                                        <h5 class="fw-bold mb-1">
+                                            <i class="bi bi-graph-up text-primary me-2"></i>
+                                            Risk Skoru Trendi
+                                        </h5>
+                                        <p class="text-muted small mb-0">Son 30 gündeki risk skoru değişimi</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="position-relative" style="height: 300px; width: 100%;">
+                                            <canvas id="riskTrendChart" style="display: block; width: 100%; height: 300px;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Risk Distribution -->
+                            <div class="col-lg-4">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-transparent border-0 pb-0">
+                                        <h5 class="fw-bold mb-1">
+                                            <i class="bi bi-pie-chart text-success me-2"></i>
+                                            Risk Dağılımı
+                                        </h5>
+                                        <p class="text-muted small mb-0">Analiz sonuçları dağılımı</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="position-relative" style="height: 300px; width: 100%;">
+                                            <canvas id="riskDistributionChart" style="display: block; width: 100%; height: 300px;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Detailed Statistics -->
+                        <div class="row g-4 mb-5">
+                            <!-- Analysis Frequency -->
+                            <div class="col-lg-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-transparent border-0 pb-0">
+                                        <h5 class="fw-bold mb-1">
+                                            <i class="bi bi-calendar3 text-warning me-2"></i>
+                                            Analiz Sıklığı
+                                        </h5>
+                                        <p class="text-muted small mb-0">Haftalık analiz aktivitesi</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row g-3">
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-primary rounded-circle p-2 me-3">
+                                                        <i class="bi bi-calendar-week text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0 fw-bold">Bu Hafta</h6>
+                                                        <span class="text-muted">2 analiz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-success rounded-circle p-2 me-3">
+                                                        <i class="bi bi-calendar-month text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0 fw-bold">Bu Ay</h6>
+                                                        <span class="text-muted">5 analiz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-info rounded-circle p-2 me-3">
+                                                        <i class="bi bi-calendar-range text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0 fw-bold">Son 3 Ay</h6>
+                                                        <span class="text-muted">12 analiz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-warning rounded-circle p-2 me-3">
+                                                        <i class="bi bi-calendar-year text-white"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0 fw-bold">Bu Yıl</h6>
+                                                        <span class="text-muted">18 analiz</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Health Insights -->
+                            <div class="col-lg-6">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-transparent border-0 pb-0">
+                                        <h5 class="fw-bold mb-1">
+                                            <i class="bi bi-heart-pulse text-danger me-2"></i>
+                                            Sağlık İçgörüleri
+                                        </h5>
+                                        <p class="text-muted small mb-0">Kişisel sağlık değerlendirmesi</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="mb-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <span class="fw-semibold">Alzheimer Risk Ortalaması</span>
+                                                <span class="badge bg-success">Düşük</span>
+                                            </div>
+                                            <div class="progress mb-1" style="height: 8px;">
+                                                <div class="progress-bar bg-success" style="width: 32%"></div>
+                                            </div>
+                                            <small class="text-muted">32% (Normal aralıkta)</small>
+                                        </div>
+                                        
+                                        <div class="mb-4">
+                                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                                <span class="fw-semibold">Parkinson Risk Ortalaması</span>
+                                                <span class="badge bg-warning">Orta</span>
+                                            </div>
+                                            <div class="progress mb-1" style="height: 8px;">
+                                                <div class="progress-bar bg-warning" style="width: 52%"></div>
+                                            </div>
+                                            <small class="text-muted">52% (Takip önerilir)</small>
+                                        </div>
+                                        
+                                        <div class="alert alert-light border d-flex align-items-center">
+                                            <i class="bi bi-lightbulb text-primary me-2"></i>
+                                            <small>
+                                                <strong>Öneri:</strong> Düzenli analizlerinizi sürdürün ve doktorunuzla sonuçları paylaşın.
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="row g-4 mb-4">
+                            <div class="col-12">
+                                <div class="card border-0 shadow-sm">
+                                    <div class="card-header bg-transparent border-0 pb-0">
+                                        <h5 class="fw-bold mb-1">
+                                            <i class="bi bi-activity text-info me-2"></i>
+                                            Son Aktiviteler
+                                        </h5>
+                                        <p class="text-muted small mb-0">Son analiz aktiviteleriniz</p>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="timeline">
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker bg-success"></div>
+                                                <div class="timeline-content">
+                                                    <h6 class="mb-1">Ses Analizi Tamamlandı</h6>
+                                                    <p class="text-muted mb-1">ses_kayit_1.wav - Risk Skoru: 25 (Düşük)</p>
+                                                    <small class="text-muted">24 Ocak 2025, 10:30</small>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker bg-warning"></div>
+                                                <div class="timeline-content">
+                                                    <h6 class="mb-1">Ses Analizi Tamamlandı</h6>
+                                                    <p class="text-muted mb-1">konusma_ornegi.mp3 - Risk Skoru: 65 (Orta)</p>
+                                                    <small class="text-muted">23 Ocak 2025, 15:45</small>
+                                                </div>
+                                            </div>
+                                            <div class="timeline-item">
+                                                <div class="timeline-marker bg-success"></div>
+                                                <div class="timeline-content">
+                                                    <h6 class="mb-1">Ses Analizi Tamamlandı</h6>
+                                                    <p class="text-muted mb-1">test_ses.wav - Risk Skoru: 35 (Düşük)</p>
+                                                    <small class="text-muted">22 Ocak 2025, 09:15</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-3 mt-auto">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-1 fw-semibold">Alzheimer & Parkinson Ses Analiz Sistemi</p>
+                <p class="mb-0 text-muted small">© 2025 Grup 49 - AI destekli erken teşhis sistemi</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // User session management
+        let isLoggedIn = false;
+        let currentUser = null;
+        
+        // Dark Mode Management
+        let isDarkMode = false;
+        
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            const theme = isDarkMode ? 'dark' : 'light';
+            
+            // Apply theme to document
+            document.documentElement.setAttribute('data-theme', theme);
+            
+            // Update icon
+            const icon = document.getElementById('darkModeIcon');
+            if (isDarkMode) {
+                icon.className = 'bi bi-sun-fill';
+            } else {
+                icon.className = 'bi bi-moon-fill';
+            }
+            
+            // Save preference to localStorage
+            localStorage.setItem('darkMode', isDarkMode);
+            
+            console.log('Dark mode:', isDarkMode ? 'enabled' : 'disabled');
+        }
+        
+        function initializeDarkMode() {
+            // Check localStorage for saved preference
+            const savedTheme = localStorage.getItem('darkMode');
+            if (savedTheme !== null) {
+                isDarkMode = savedTheme === 'true';
+            } else {
+                // Check system preference
+                isDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            }
+            
+            if (isDarkMode) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                const icon = document.getElementById('darkModeIcon');
+                if (icon) icon.className = 'bi bi-sun-fill';
+            }
+        }
+
+        function updateNavigation() {
+            // Use the new navbar button management function
+            updateNavbarButtons(isLoggedIn);
+        }
+        
+        function login() {
+            // Simulate login process
+            const email = document.querySelector('#login-section input[type="email"]').value;
+            const password = document.querySelector('#login-section input[type="password"]').value;
+            
+            if (email && password) {
+                // Simulate successful login
+                isLoggedIn = true;
+                currentUser = {
+                    email: email,
+                    name: 'Kullanıcı',
+                    loginTime: new Date()
+                };
+                
+                // Store session data
+                localStorage.setItem('userToken', 'demo-token-' + Date.now());
+                localStorage.setItem('userData', JSON.stringify(currentUser));
+                
+                // Update navbar buttons
+                updateNavbarButtons(true);
+                
+                // Redirect to dashboard
+                showDashboard();
+                
+                alert('Başarıyla giriş yaptınız!');
+            } else {
+                alert('Lütfen e-posta ve şifre alanlarını doldurun.');
+            }
+        }
+        
+        function register() {
+            // Simulate registration process
+            const inputs = document.querySelectorAll('#register-section input[required]');
+            let allFilled = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    allFilled = false;
+                }
+            });
+            
+            if (allFilled) {
+                // Simulate successful registration
+                alert('Kayıt işlemi başarılı! Şimdi giriş yapabilirsiniz.');
+                showLogin();
+            } else {
+                alert('Lütfen tüm alanları doldurun.');
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('login-section').style.display = 'block';
+            document.getElementById('register-section').style.display = 'none';
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('analysis-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+            document.getElementById('statistics-section').style.display = 'none';
+            updateNavigation();
+        }
+
+        function showRegister() {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('register-section').style.display = 'block';
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('analysis-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+            document.getElementById('statistics-section').style.display = 'none';
+            updateNavigation();
+        }
+
+        function showDashboard() {
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('register-section').style.display = 'none';
+            document.getElementById('dashboard-section').style.display = 'block';
+            document.getElementById('analysis-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+            document.getElementById('statistics-section').style.display = 'none';
+            updateNavigation();
+        }
+
+        function login() {
+            // Simulate login
+            isLoggedIn = true;
+            currentUser = { name: 'Kullanıcı', email: 'user@example.com' };
+            alert('Giriş başarılı! Dashboard\'a hoş geldiniz!');
+            showDashboard();
+        }
+
+        function register() {
+            // Simulate registration
+            isLoggedIn = true;
+            currentUser = { name: 'Yeni Kullanıcı', email: 'newuser@example.com' };
+            alert('Kayıt başarılı! Hoş geldiniz!');
+            showDashboard();
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            currentUser = null;
+            alert('Çıkış yapıldı! Güvenle ayrıldınız.');
+            showLogin();
+        }
+
+        function showAnalysis() {
+            if (!isLoggedIn) {
+                alert('Ses analizi için lütfen önce giriş yapın!');
+                showLogin();
+                return;
+            }
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('register-section').style.display = 'none';
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+            document.getElementById('statistics-section').style.display = 'none';
+            document.getElementById('analysis-section').style.display = 'block';
+            updateNavigation();
+            resetAnalysis();
+        }
+
+        // Voice Analysis Functions
+        let selectedFile = null;
+        let isRecording = false;
+        let recordingTimer = null;
+        let recordingSeconds = 0;
+
+        function handleFileSelect(event) {
+            const file = event.target.files[0];
+            if (file) {
+                if (file.size > 10 * 1024 * 1024) {
+                    alert('Dosya boyutu 10MB\'dan büyük olamaz!');
+                    event.target.value = '';
+                    return;
+                }
+                
+                const allowedTypes = ['audio/wav', 'audio/mp3', 'audio/mpeg', 'audio/ogg', 'audio/m4a'];
+                if (!allowedTypes.includes(file.type) && !file.name.match(/\.(wav|mp3|ogg|m4a)$/i)) {
+                    alert('Desteklenmeyen dosya formatı! Lütfen WAV, MP3, OGG veya M4A dosyası seçin.');
+                    event.target.value = '';
+                    return;
+                }
+                
+                selectedFile = file;
+                document.getElementById('analyzeBtn').disabled = false;
+                console.log(`Dosya seçildi: ${file.name}`);
+            }
+        }
+
+        function toggleRecording() {
+            const recordBtn = document.getElementById('recordBtn');
+            const recordingStatus = document.getElementById('recordingStatus');
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            
+            if (!isRecording) {
+                isRecording = true;
+                recordingSeconds = 0;
+                
+                recordBtn.innerHTML = '<i class="bi bi-stop-circle me-2"></i>Kaydı Durdur';
+                recordBtn.classList.remove('btn-outline-primary');
+                recordBtn.classList.add('btn-danger');
+                
+                recordingStatus.style.display = 'block';
+                
+                recordingTimer = setInterval(function() {
+                    recordingSeconds++;
+                    const minutes = Math.floor(recordingSeconds / 60);
+                    const seconds = recordingSeconds % 60;
+                    document.getElementById('recordTime').textContent = 
+                        String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+                }, 1000);
+                
+                console.log('Kayıt başlatıldı...');
+            } else {
+                isRecording = false;
+                clearInterval(recordingTimer);
+                
+                recordBtn.innerHTML = '<i class="bi bi-record-circle me-2"></i>Kayıt Başlat';
+                recordBtn.classList.remove('btn-danger');
+                recordBtn.classList.add('btn-outline-primary');
+                
+                recordingStatus.style.display = 'none';
+                analyzeBtn.disabled = false;
+                selectedFile = { name: 'Kayıt_' + new Date().toISOString().slice(0,10) + '.wav', size: 1024000 };
+                
+                console.log('Kayıt durduruldu. Süre:', recordingSeconds, 'saniye');
+            }
+        }
+
+        function startAnalysis() {
+            if (!selectedFile) {
+                alert('Lütfen önce bir ses dosyası seçin veya kayıt yapın!');
+                return;
+            }
+            
+            document.getElementById('upload-section').style.display = 'none';
+            document.getElementById('analysis-progress').style.display = 'block';
+            
+            let progress = 0;
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            
+            const progressSteps = [
+                { percent: 10, text: 'Ses dosyası yükleniyor...' },
+                { percent: 30, text: 'Ses özellikleri çıkarılıyor...' },
+                { percent: 60, text: 'AI modeli analiz yapıyor...' },
+                { percent: 85, text: 'Risk skorları hesaplanıyor...' },
+                { percent: 100, text: 'Analiz tamamlandı!' }
+            ];
+            
+            let stepIndex = 0;
+            const progressInterval = setInterval(function() {
+                if (stepIndex < progressSteps.length) {
+                    const step = progressSteps[stepIndex];
+                    progressBar.style.width = step.percent + '%';
+                    progressText.textContent = step.text;
+                    stepIndex++;
+                } else {
+                    clearInterval(progressInterval);
+                    setTimeout(showAnalysisResults, 1000);
+                }
+            }, 1200);
+        }
+
+        function showAnalysisResults() {
+            document.getElementById('analysis-progress').style.display = 'none';
+            document.getElementById('analysis-result').style.display = 'block';
+            
+            const riskScore = Math.floor(Math.random() * 60) + 20;
+            let riskLevel, riskColor;
+            
+            if (riskScore < 40) {
+                riskLevel = 'Düşük Risk';
+                riskColor = 'success';
+            } else if (riskScore < 70) {
+                riskLevel = 'Orta Risk';
+                riskColor = 'warning';
+            } else {
+                riskLevel = 'Yüksek Risk';
+                riskColor = 'danger';
+            }
+            
+            document.getElementById('riskScore').textContent = riskScore;
+            document.getElementById('riskLevel').textContent = riskLevel;
+            
+            if (selectedFile) {
+                document.getElementById('fileSize').textContent = (selectedFile.size / (1024 * 1024)).toFixed(1) + ' MB';
+            }
+            
+            const analysisTime = (Math.random() * 3 + 1).toFixed(1) + 's';
+            document.getElementById('analysisTime').textContent = analysisTime;
+            
+            console.log('Analiz sonuçları gösterildi:', { riskScore, riskLevel });
+        }
+
+        function resetAnalysis() {
+            document.getElementById('upload-section').style.display = 'block';
+            document.getElementById('analysis-progress').style.display = 'none';
+            document.getElementById('analysis-result').style.display = 'none';
+            
+            document.getElementById('audioFile').value = '';
+            document.getElementById('analyzeBtn').disabled = true;
+            selectedFile = null;
+            
+            if (isRecording) {
+                toggleRecording();
+            }
+        }
+
+        function saveAnalysis() {
+            const riskScore = document.getElementById('riskScore').textContent;
+            const riskLevel = document.getElementById('riskLevel').textContent;
+            
+            const analysisData = {
+                date: new Date().toLocaleString('tr-TR'),
+                fileName: selectedFile ? selectedFile.name : 'Kayıt',
+                riskScore: riskScore,
+                riskLevel: riskLevel
+            };
+            
+            localStorage.setItem('lastAnalysis', JSON.stringify(analysisData));
+            alert('Analiz sonuçları kaydedildi!');
+            console.log('Analiz kaydedildi:', analysisData);
+        }
+
+        function showHistory() {
+            if (!isLoggedIn) {
+                alert('Geçmiş analizler için lütfen önce giriş yapın!');
+                showLogin();
+                return;
+            }
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('register-section').style.display = 'none';
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('analysis-section').style.display = 'none';
+            document.getElementById('statistics-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'block';
+            updateNavigation();
+            
+            // Initialize pagination when history page loads
+            currentPage = 1;
+            updatePagination();
+            
+            // Initialize filters
+            initializeFilters();
+        }
+
+        function showStatistics() {
+            if (!isLoggedIn) {
+                alert('İstatistikler için lütfen önce giriş yapın!');
+                showLogin();
+                return;
+            }
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('register-section').style.display = 'none';
+            document.getElementById('dashboard-section').style.display = 'none';
+            document.getElementById('analysis-section').style.display = 'none';
+            document.getElementById('history-section').style.display = 'none';
+            document.getElementById('statistics-section').style.display = 'block';
+            updateNavigation();
+            
+            // Initialize charts when statistics page loads
+            setTimeout(() => {
+                initializeCharts();
+            }, 100);
+        }
+
+        // History page functions
+        function viewAnalysisDetail(analysisId) {
+            const analysisData = {
+                1: {
+                    fileName: 'ses_kayit_1.wav',
+                    date: '24.01.2025 10:30',
+                    riskScore: 25,
+                    riskLevel: 'Düşük Risk',
+                    duration: '2.1s',
+                    fileSize: '1.2 MB',
+                    sampleRate: '44.1 kHz',
+                    channels: 'Mono',
+                    alzheimer: 15,
+                    parkinson: 35,
+                    details: 'Ses kaydında normal konuşma kalıpları tespit edildi. Alzheimer riski düşük seviyede.'
+                },
+                2: {
+                    fileName: 'konusma_ornegi.mp3',
+                    date: '23.01.2025 15:45',
+                    riskScore: 65,
+                    riskLevel: 'Orta Risk',
+                    duration: '3.2s',
+                    fileSize: '2.1 MB',
+                    sampleRate: '48 kHz',
+                    channels: 'Stereo',
+                    alzheimer: 70,
+                    parkinson: 60,
+                    details: 'Konuşma hızında ve tonlamada hafif değişiklikler gözlemlendi. Takip önerilir.'
+                },
+                3: {
+                    fileName: 'test_ses.wav',
+                    date: '22.01.2025 09:15',
+                    riskScore: 35,
+                    riskLevel: 'Düşük Risk',
+                    duration: '1.8s',
+                    fileSize: '0.9 MB',
+                    sampleRate: '44.1 kHz',
+                    channels: 'Mono',
+                    alzheimer: 25,
+                    parkinson: 45,
+                    details: 'Ses kalitesi iyi, normal konuşma parametreleri içinde değerler tespit edildi.'
+                },
+                4: {
+                    fileName: 'kayit_2025.m4a',
+                    date: '21.01.2025 14:20',
+                    riskScore: 58,
+                    riskLevel: 'Orta Risk',
+                    duration: '2.7s',
+                    fileSize: '1.8 MB',
+                    sampleRate: '44.1 kHz',
+                    channels: 'Mono',
+                    alzheimer: 55,
+                    parkinson: 61,
+                    details: 'Ses titremelerinde ve kelime aralarında hafif düzensizlikler tespit edildi.'
+                },
+                5: {
+                    fileName: 'ses_analiz.ogg',
+                    date: '20.01.2025 11:30',
+                    riskScore: 42,
+                    riskLevel: 'Düşük Risk',
+                    duration: '2.5s',
+                    fileSize: '1.4 MB',
+                    sampleRate: '48 kHz',
+                    channels: 'Mono',
+                    alzheimer: 38,
+                    parkinson: 46,
+                    details: 'Genel olarak normal değerler, düzenli takip önerilir.'
+                }
+            };
+
+            const analysis = analysisData[analysisId];
+            if (!analysis) {
+                alert('Analiz detayları bulunamadı!');
+                return;
+            }
+
+            const modalContent = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-primary mb-3">
+                            <i class="bi bi-info-circle me-2"></i>Dosya Bilgileri
+                        </h6>
+                        <table class="table table-sm">
+                            <tr><td><strong>Dosya Adı:</strong></td><td>${analysis.fileName}</td></tr>
+                            <tr><td><strong>Analiz Tarihi:</strong></td><td>${analysis.date}</td></tr>
+                            <tr><td><strong>Süre:</strong></td><td>${analysis.duration}</td></tr>
+                            <tr><td><strong>Dosya Boyutu:</strong></td><td>${analysis.fileSize}</td></tr>
+                            <tr><td><strong>Örnekleme Hızı:</strong></td><td>${analysis.sampleRate}</td></tr>
+                            <tr><td><strong>Kanal:</strong></td><td>${analysis.channels}</td></tr>
+                        </table>
+                    </div>
+                    <div class="col-md-6">
+                        <h6 class="fw-bold text-danger mb-3">
+                            <i class="bi bi-shield-exclamation me-2"></i>Risk Analizi
+                        </h6>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-2">
+                                <span>Genel Risk Skoru:</span>
+                                <span class="badge bg-${analysis.riskScore < 40 ? 'success' : analysis.riskScore < 70 ? 'warning' : 'danger'} fs-6">
+                                    ${analysis.riskScore}%
+                                </span>
+                            </div>
+                            <div class="progress mb-3">
+                                <div class="progress-bar bg-${analysis.riskScore < 40 ? 'success' : analysis.riskScore < 70 ? 'warning' : 'danger'}" 
+                                     style="width: ${analysis.riskScore}%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span>Alzheimer Riski:</span>
+                                <span class="fw-bold">${analysis.alzheimer}%</span>
+                            </div>
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-info" style="width: ${analysis.alzheimer}%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                <span>Parkinson Riski:</span>
+                                <span class="fw-bold">${analysis.parkinson}%</span>
+                            </div>
+                            <div class="progress mb-2" style="height: 8px;">
+                                <div class="progress-bar bg-warning" style="width: ${analysis.parkinson}%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <h6 class="fw-bold text-success mb-3">
+                            <i class="bi bi-clipboard-data me-2"></i>Analiz Sonucu
+                        </h6>
+                        <div class="alert alert-light border">
+                            <p class="mb-0">${analysis.details}</p>
+                        </div>
+                        
+                        <div class="mt-3">
+                            <h6 class="fw-bold mb-2">Öneriler:</h6>
+                            <ul class="list-unstyled">
+                                <li><i class="bi bi-check-circle text-success me-2"></i>Düzenli ses analizlerini sürdürün</li>
+                                <li><i class="bi bi-check-circle text-success me-2"></i>Sağlıklı yaşam tarzını koruyun</li>
+                                ${analysis.riskScore > 50 ? '<li><i class="bi bi-exclamation-triangle text-warning me-2"></i>Uzman doktor kontrolü önerilir</li>' : ''}
+                                <li><i class="bi bi-check-circle text-success me-2"></i>Sonuçları doktorunuzla paylaşın</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('modalContent').innerHTML = modalContent;
+            
+            // Show modal (Bootstrap 5 way)
+            const modal = new bootstrap.Modal(document.getElementById('analysisDetailModal'));
+            modal.show();
+        }
+
+        function deleteAnalysis(analysisId) {
+            if (confirm('Bu analizi silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.')) {
+                // Simulate deletion
+                const row = event.target.closest('tr');
+                if (row) {
+                    row.style.transition = 'opacity 0.3s';
+                    row.style.opacity = '0';
+                    setTimeout(() => {
+                        row.remove();
+                        alert('Analiz başarıyla silindi!');
+                        // Update counters
+                        updateHistoryCounters();
+                    }, 300);
+                }
+            }
+        }
+
+        function updateHistoryCounters() {
+            // Update summary cards based on remaining analyses
+            const rows = document.querySelectorAll('#historyTableBody tr');
+            let total = rows.length;
+            let lowRisk = 0, mediumRisk = 0, highRisk = 0;
+            
+            rows.forEach(row => {
+                const riskBadge = row.querySelector('.badge');
+                if (riskBadge) {
+                    const riskText = riskBadge.textContent;
+                    if (riskText.includes('Düşük')) lowRisk++;
+                    else if (riskText.includes('Orta')) mediumRisk++;
+                    else if (riskText.includes('Yüksek')) highRisk++;
+                }
+            });
+            
+            document.getElementById('totalAnalyses').textContent = total;
+            document.getElementById('lowRiskCount').textContent = lowRisk;
+            document.getElementById('mediumRiskCount').textContent = mediumRisk;
+            document.getElementById('highRiskCount').textContent = highRisk;
+            
+            // Update pagination after data changes
+            updatePagination();
+        }
+
+        function downloadAnalysisReport() {
+            alert('Rapor indirme özelliği geliştirme aşamasında! Yakında eklenecek.');
+        }
+
+        // Dynamic pagination system
+        let currentPage = 1;
+        const itemsPerPage = 5;
+        
+        function updatePagination() {
+            const rows = document.querySelectorAll('#historyTableBody tr');
+            const totalItems = rows.length;
+            const totalPages = Math.ceil(totalItems / itemsPerPage);
+            
+            // Hide pagination if only one page or no data
+            const paginationNav = document.querySelector('.pagination').parentElement;
+            if (totalPages <= 1) {
+                paginationNav.style.display = 'none';
+                return;
+            } else {
+                paginationNav.style.display = 'block';
+            }
+            
+            // Generate pagination HTML
+            let paginationHTML = '';
+            
+            // Previous button
+            paginationHTML += `
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="changePage(${currentPage - 1})">Önceki</a>
+                </li>
+            `;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHTML += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" onclick="changePage(${i})">${i}</a>
+                    </li>
+                `;
+            }
+            
+            // Next button
+            paginationHTML += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="changePage(${currentPage + 1})">Sonraki</a>
+                </li>
+            `;
+            
+            document.querySelector('.pagination').innerHTML = paginationHTML;
+            
+            // Show/hide rows based on current page
+            showPageItems();
+        }
+        
+        function changePage(page) {
+            const rows = document.querySelectorAll('#historyTableBody tr');
+            const totalPages = Math.ceil(rows.length / itemsPerPage);
+            
+            if (page < 1 || page > totalPages) return;
+            
+            currentPage = page;
+            updatePagination();
+        }
+        
+        function showPageItems() {
+            const rows = document.querySelectorAll('#historyTableBody tr');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
+            rows.forEach((row, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // Filtering system
+        function initializeFilters() {
+            // Search input event listener
+            const searchInput = document.getElementById('searchInput');
+            if (searchInput) {
+                searchInput.addEventListener('input', applyFilters);
+            }
+            
+            // Risk filter event listener
+            const riskFilter = document.getElementById('riskFilter');
+            if (riskFilter) {
+                riskFilter.addEventListener('change', applyFilters);
+            }
+            
+            // Date filter event listener
+            const dateFilter = document.getElementById('dateFilter');
+            if (dateFilter) {
+                dateFilter.addEventListener('change', applyFilters);
+            }
+        }
+        
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const riskFilter = document.getElementById('riskFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+            
+            const rows = document.querySelectorAll('#historyTableBody tr');
+            let visibleCount = 0;
+            
+            rows.forEach(row => {
+                let showRow = true;
+                
+                // Search filter (dosya adı)
+                if (searchTerm) {
+                    const fileName = row.querySelector('td:first-child span').textContent.toLowerCase();
+                    if (!fileName.includes(searchTerm)) {
+                        showRow = false;
+                    }
+                }
+                
+                // Risk filter
+                if (riskFilter !== 'all' && showRow) {
+                    const riskBadge = row.querySelector('.badge');
+                    const riskText = riskBadge.textContent.toLowerCase();
+                    
+                    switch (riskFilter) {
+                        case 'low':
+                            if (!riskText.includes('düşük')) showRow = false;
+                            break;
+                        case 'medium':
+                            if (!riskText.includes('orta')) showRow = false;
+                            break;
+                        case 'high':
+                            if (!riskText.includes('yüksek')) showRow = false;
+                            break;
+                    }
+                }
+                
+                // Date filter
+                if (dateFilter !== 'all' && showRow) {
+                    const dateCell = row.querySelector('td:nth-child(2)').textContent;
+                    const analysisDate = parseDate(dateCell);
+                    const today = new Date();
+                    
+                    switch (dateFilter) {
+                        case 'today':
+                            if (!isSameDay(analysisDate, today)) showRow = false;
+                            break;
+                        case 'week':
+                            const weekAgo = new Date(today.getTime() - 7 * 24 * 60 * 60 * 1000);
+                            if (analysisDate < weekAgo) showRow = false;
+                            break;
+                        case 'month':
+                            const monthAgo = new Date(today.getFullYear(), today.getMonth() - 1, today.getDate());
+                            if (analysisDate < monthAgo) showRow = false;
+                            break;
+                    }
+                }
+                
+                // Show/hide row
+                if (showRow) {
+                    row.style.display = '';
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+            
+            // Update pagination based on filtered results
+            updateFilteredPagination(visibleCount);
+            
+            // Update counters based on visible rows
+            updateFilteredCounters();
+        }
+        
+        function parseDate(dateString) {
+            // Parse "24.01.2025 10:30" format
+            const parts = dateString.split(' ');
+            const datePart = parts[0].split('.');
+            const day = parseInt(datePart[0]);
+            const month = parseInt(datePart[1]) - 1; // Month is 0-indexed
+            const year = parseInt(datePart[2]);
+            
+            return new Date(year, month, day);
+        }
+        
+        function isSameDay(date1, date2) {
+            return date1.getDate() === date2.getDate() &&
+                   date1.getMonth() === date2.getMonth() &&
+                   date1.getFullYear() === date2.getFullYear();
+        }
+        
+        function updateFilteredPagination(visibleCount) {
+            const totalPages = Math.ceil(visibleCount / itemsPerPage);
+            
+            // Hide pagination if only one page or no data
+            const paginationNav = document.querySelector('.pagination').parentElement;
+            if (totalPages <= 1) {
+                paginationNav.style.display = 'none';
+                return;
+            } else {
+                paginationNav.style.display = 'block';
+            }
+            
+            // Reset to first page when filtering
+            currentPage = 1;
+            
+            // Generate pagination HTML
+            let paginationHTML = '';
+            
+            // Previous button
+            paginationHTML += `
+                <li class="page-item ${currentPage === 1 ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="changeFilteredPage(${currentPage - 1})">Önceki</a>
+                </li>
+            `;
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHTML += `
+                    <li class="page-item ${i === currentPage ? 'active' : ''}">
+                        <a class="page-link" href="#" onclick="changeFilteredPage(${i})">${i}</a>
+                    </li>
+                `;
+            }
+            
+            // Next button
+            paginationHTML += `
+                <li class="page-item ${currentPage === totalPages ? 'disabled' : ''}">
+                    <a class="page-link" href="#" onclick="changeFilteredPage(${currentPage + 1})">Sonraki</a>
+                </li>
+            `;
+            
+            document.querySelector('.pagination').innerHTML = paginationHTML;
+            
+            // Show/hide filtered items based on current page
+            showFilteredPageItems();
+        }
+        
+        function changeFilteredPage(page) {
+            const visibleRows = Array.from(document.querySelectorAll('#historyTableBody tr')).filter(row => row.style.display !== 'none');
+            const totalPages = Math.ceil(visibleRows.length / itemsPerPage);
+            
+            if (page < 1 || page > totalPages) return;
+            
+            currentPage = page;
+            updateFilteredPagination(visibleRows.length);
+        }
+        
+        function showFilteredPageItems() {
+            const visibleRows = Array.from(document.querySelectorAll('#historyTableBody tr')).filter(row => row.style.display !== 'none');
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = startIndex + itemsPerPage;
+            
+            visibleRows.forEach((row, index) => {
+                if (index >= startIndex && index < endIndex) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+        
+        function updateFilteredCounters() {
+            const visibleRows = Array.from(document.querySelectorAll('#historyTableBody tr')).filter(row => row.style.display !== 'none');
+            let total = visibleRows.length;
+            let lowRisk = 0, mediumRisk = 0, highRisk = 0;
+            
+            visibleRows.forEach(row => {
+                const riskBadge = row.querySelector('.badge');
+                if (riskBadge) {
+                    const riskText = riskBadge.textContent;
+                    if (riskText.includes('Düşük')) lowRisk++;
+                    else if (riskText.includes('Orta')) mediumRisk++;
+                    else if (riskText.includes('Yüksek')) highRisk++;
+                }
+            });
+            
+            document.getElementById('totalAnalyses').textContent = total;
+            document.getElementById('lowRiskCount').textContent = lowRisk;
+            document.getElementById('mediumRiskCount').textContent = mediumRisk;
+            document.getElementById('highRiskCount').textContent = highRisk;
+        }
+        
+        function clearFilters() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('riskFilter').value = 'all';
+            document.getElementById('dateFilter').value = 'all';
+            applyFilters();
+        }
+
+        // Chart functions for statistics page
+        function initializeCharts() {
+            // Wait for DOM to be ready and then draw charts
+            setTimeout(() => {
+                drawRiskTrendChart();
+                drawRiskDistributionChart();
+            }, 200);
+        }
+        
+        function drawRiskTrendChart() {
+            const canvas = document.getElementById('riskTrendChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            const containerWidth = container.offsetWidth;
+            const containerHeight = 300;
+            
+            // Set canvas size with device pixel ratio for crisp rendering
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = containerWidth * dpr;
+            canvas.height = containerHeight * dpr;
+            canvas.style.width = containerWidth + 'px';
+            canvas.style.height = containerHeight + 'px';
+            
+            // Scale context for device pixel ratio
+            ctx.scale(dpr, dpr);
+            
+            const width = containerWidth;
+            const height = containerHeight;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Sample data (risk scores over time)
+            const data = [
+                { date: '20 Oca', risk: 42 },
+                { date: '21 Oca', risk: 58 },
+                { date: '22 Oca', risk: 35 },
+                { date: '23 Oca', risk: 65 },
+                { date: '24 Oca', risk: 25 }
+            ];
+            
+            const padding = 60;
+            const chartWidth = width - 2 * padding;
+            const chartHeight = height - 2 * padding;
+            
+            // Draw grid lines
+            ctx.strokeStyle = '#e9ecef';
+            ctx.lineWidth = 1;
+            
+            // Horizontal grid lines
+            for (let i = 0; i <= 4; i++) {
+                const y = padding + (chartHeight / 4) * i;
+                ctx.beginPath();
+                ctx.moveTo(padding, y);
+                ctx.lineTo(width - padding, y);
+                ctx.stroke();
+                
+                // Y-axis labels
+                ctx.fillStyle = '#6c757d';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'right';
+                ctx.fillText((100 - (i * 25)).toString(), padding - 10, y + 4);
+            }
+            
+            // Vertical grid lines and X-axis labels
+            for (let i = 0; i < data.length; i++) {
+                const x = padding + (chartWidth / (data.length - 1)) * i;
+                ctx.beginPath();
+                ctx.moveTo(x, padding);
+                ctx.lineTo(x, height - padding);
+                ctx.stroke();
+                
+                // X-axis labels
+                ctx.fillStyle = '#6c757d';
+                ctx.font = '12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(data[i].date, x, height - padding + 20);
+            }
+            
+            // Draw the line chart
+            ctx.strokeStyle = '#007bff';
+            ctx.lineWidth = 3;
+            ctx.beginPath();
+            
+            for (let i = 0; i < data.length; i++) {
+                const x = padding + (chartWidth / (data.length - 1)) * i;
+                const y = padding + chartHeight - (data[i].risk / 100) * chartHeight;
+                
+                if (i === 0) {
+                    ctx.moveTo(x, y);
+                } else {
+                    ctx.lineTo(x, y);
+                }
+            }
+            ctx.stroke();
+            
+            // Draw data points
+            for (let i = 0; i < data.length; i++) {
+                const x = padding + (chartWidth / (data.length - 1)) * i;
+                const y = padding + chartHeight - (data[i].risk / 100) * chartHeight;
+                
+                // Point circle
+                ctx.fillStyle = '#007bff';
+                ctx.beginPath();
+                ctx.arc(x, y, 6, 0, 2 * Math.PI);
+                ctx.fill();
+                
+                // Point border
+                ctx.strokeStyle = '#ffffff';
+                ctx.lineWidth = 2;
+                ctx.stroke();
+                
+                // Value labels
+                ctx.fillStyle = '#495057';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText(data[i].risk.toString(), x, y - 15);
+            }
+        }
+        
+        function drawRiskDistributionChart() {
+            const canvas = document.getElementById('riskDistributionChart');
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            const container = canvas.parentElement;
+            const containerWidth = container.offsetWidth;
+            const containerHeight = 300;
+            
+            // Set canvas size with device pixel ratio for crisp rendering
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = containerWidth * dpr;
+            canvas.height = containerHeight * dpr;
+            canvas.style.width = containerWidth + 'px';
+            canvas.style.height = containerHeight + 'px';
+            
+            // Scale context for device pixel ratio
+            ctx.scale(dpr, dpr);
+            
+            const width = containerWidth;
+            const height = containerHeight;
+            
+            // Clear canvas
+            ctx.clearRect(0, 0, width, height);
+            
+            // Sample data (risk distribution)
+            const data = [
+                { label: 'Düşük Risk', value: 3, color: '#28a745' },
+                { label: 'Orta Risk', value: 2, color: '#ffc107' },
+                { label: 'Yüksek Risk', value: 0, color: '#dc3545' }
+            ];
+            
+            const total = data.reduce((sum, item) => sum + item.value, 0);
+            const centerX = width / 2;
+            const centerY = height / 2;
+            const radius = Math.min(width, height) / 2 - 40;
+            
+            let currentAngle = -Math.PI / 2; // Start from top
+            
+            // Draw pie slices
+            data.forEach(item => {
+                if (item.value > 0) {
+                    const sliceAngle = (item.value / total) * 2 * Math.PI;
+                    
+                    ctx.fillStyle = item.color;
+                    ctx.beginPath();
+                    ctx.moveTo(centerX, centerY);
+                    ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                    ctx.closePath();
+                    ctx.fill();
+                    
+                    // Draw slice border
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 3;
+                    ctx.stroke();
+                    
+                    currentAngle += sliceAngle;
+                }
+            });
+            
+            // Draw legend
+            let legendY = 50;
+            data.forEach(item => {
+                // Legend color box
+                ctx.fillStyle = item.color;
+                ctx.fillRect(20, legendY, 15, 15);
+                
+                // Legend text
+                ctx.fillStyle = '#495057';
+                ctx.font = '14px Arial';
+                ctx.textAlign = 'left';
+                ctx.fillText(`${item.label}: ${item.value}`, 45, legendY + 12);
+                
+                legendY += 25;
+            });
+            
+            // Center circle (donut effect)
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius * 0.4, 0, 2 * Math.PI);
+            ctx.fill();
+            
+            // Center text
+            ctx.fillStyle = '#495057';
+            ctx.font = 'bold 16px Arial';
+            ctx.textAlign = 'center';
+            ctx.fillText('Toplam', centerX, centerY - 5);
+            ctx.fillText(total.toString(), centerX, centerY + 15);
+        }
+
+        // Window resize handler for charts
+        window.addEventListener('resize', function() {
+            if (document.getElementById('statistics-section').style.display === 'block') {
+                setTimeout(() => {
+                    drawRiskTrendChart();
+                    drawRiskDistributionChart();
+                }, 100);
+            }
+        });
+
+        // Initialize page
+        function initializePage() {
+            isLoggedIn = false;
+            currentUser = null;
+            initializeDarkMode();
+            updateNavigation();
+            showLogin();
+        }
+        
+        // Navbar button management
+        function updateNavbarButtons(isLoggedIn) {
+            const navbarMenu = document.getElementById('navbar-menu');
+            const logoutButton = document.getElementById('logoutButton');
+            
+            if (isLoggedIn) {
+                // Hide login/register links
+                navbarMenu.innerHTML = `
+                    <li class="nav-item">
+                        <a class="nav-link" href="#dashboard" onclick="showDashboard()">Ana Sayfa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#analysis" onclick="showAnalysis()">Ses Analizi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#history" onclick="showHistory()">Geçmiş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#statistics" onclick="showStatistics()">İstatistikler</a>
+                    </li>
+                `;
+                // Show logout button
+                logoutButton.style.display = 'block';
+            } else {
+                // Show login/register links
+                navbarMenu.innerHTML = `
+                    <li class="nav-item">
+                        <a class="nav-link" href="#login" onclick="showLogin()">Giriş</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register" onclick="showRegister()">Kayıt Ol</a>
+                    </li>
+                `;
+                // Hide logout button
+                logoutButton.style.display = 'none';
+            }
+        }
+        
+        function logout() {
+            if (confirm('Çıkış yapmak istediğinizden emin misiniz?')) {
+                // Clear any stored session data
+                localStorage.removeItem('userToken');
+                localStorage.removeItem('userData');
+                
+                // Update navbar
+                updateNavbarButtons(false);
+                
+                // Redirect to login
+                showLogin();
+                
+                alert('Başarıyla çıkış yaptınız!');
+            }
+        }
+
+        // Start the application
+        initializePage();
+    </script>
+</body>
+</html>

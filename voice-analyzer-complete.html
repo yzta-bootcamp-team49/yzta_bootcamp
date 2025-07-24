@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer & Parkinson Ses Analiz Sistemi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .card { border: none; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .btn { border-radius: 25px; font-weight: 600; }
+        .page { display: none; } .page.active { display: block; }
+        .hero-section { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 3rem; color: white; text-align: center; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#" onclick="showPage('home')">
+                <i class="bi bi-soundwave me-2"></i>Alzheimer & Parkinson Ses Analizi
+            </a>
+            <div class="navbar-nav ms-auto" id="navMenu"></div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <div class="hero-section mb-4">
+                <h1 class="display-4 fw-bold mb-4">Hoş Geldiniz</h1>
+                <p class="lead mb-4">AI destekli ses analiz sistemi</p>
+                <button class="btn btn-light btn-lg me-3" onclick="showPage('login')">Giriş Yap</button>
+                <button class="btn btn-outline-light btn-lg" onclick="showPage('register')">Kayıt Ol</button>
+            </div>
+        </div>
+
+        <!-- Login Page -->
+        <div id="login" class="page">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <h2 class="text-center mb-4">Giriş Yap</h2>
+                            <form onsubmit="handleLogin(event)">
+                                <div class="mb-3">
+                                    <label class="form-label">E-posta</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Şifre</label>
+                                    <input type="password" class="form-control" required>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+                                </div>
+                            </form>
+                            <div class="text-center mt-3">
+                                <a href="#" onclick="showPage('register')">Kayıt Ol</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Page -->
+        <div id="register" class="page">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <h2 class="text-center mb-4">Kayıt Ol</h2>
+                            <form onsubmit="handleRegister(event)">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Ad</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Soyad</label>
+                                        <input type="text" class="form-control" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">E-posta</label>
+                                    <input type="email" class="form-control" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Telefon</label>
+                                    <input type="tel" class="form-control" placeholder="05XX XXX XX XX" required>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Şifre</label>
+                                        <input type="password" class="form-control" minlength="8" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label">Şifre Tekrar</label>
+                                        <input type="password" class="form-control" minlength="8" required>
+                                    </div>
+                                </div>
+                                <div class="d-grid">
+                                    <button type="submit" class="btn btn-success">Kayıt Ol</button>
+                                </div>
+                            </form>
+                            <div class="text-center mt-3">
+                                <a href="#" onclick="showPage('login')">Giriş Yap</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Page -->
+        <div id="dashboard" class="page">
+            <div class="hero-section mb-4">
+                <h1 class="display-5 fw-bold">Dashboard</h1>
+                <p class="lead">Ses analizinizi başlatın</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card text-center" onclick="showPage('analysis')">
+                        <div class="card-body">
+                            <i class="bi bi-mic-fill text-primary mb-3" style="font-size: 3rem;"></i>
+                            <h4>Yeni Ses Analizi</h4>
+                            <p class="text-muted">AI destekli analiz başlatın</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center" onclick="showPage('history')">
+                        <div class="card-body">
+                            <i class="bi bi-clock-history text-success mb-3" style="font-size: 3rem;"></i>
+                            <h4>Geçmiş Analizler</h4>
+                            <p class="text-muted">Önceki analizlerinizi görün</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-center" onclick="showPage('statistics')">
+                        <div class="card-body">
+                            <i class="bi bi-bar-chart-fill text-info mb-3" style="font-size: 3rem;"></i>
+                            <h4>İstatistikler</h4>
+                            <p class="text-muted">Kişisel istatistikleriniz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Analysis Page -->
+        <div id="analysis" class="page">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <h2 class="text-center mb-4">Ses Analizi</h2>
+                            <div class="mb-4">
+                                <label class="form-label">Ses Dosyası Seçin</label>
+                                <input type="file" class="form-control" accept="audio/*">
+                                <div class="form-text">WAV, MP3, OGG formatları desteklenir</div>
+                            </div>
+                            <div class="d-grid">
+                                <button class="btn btn-primary btn-lg" onclick="simulateAnalysis()">Analizi Başlat</button>
+                            </div>
+                            <div id="analysisResult" class="mt-4" style="display: none;">
+                                <div class="alert alert-success">
+                                    <h4>Analiz Tamamlandı!</h4>
+                                    <p><strong>Risk Skoru:</strong> 45/100</p>
+                                    <p><strong>Risk Seviyesi:</strong> Düşük</p>
+                                    <p>Ses analiziniz başarıyla tamamlandı. Detaylı sonuçlar için geçmiş analizler bölümünü ziyaret edin.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- History Page -->
+        <div id="history" class="page">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="mb-4">Geçmiş Analizler</h2>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Dosya</th>
+                                    <th>Tarih</th>
+                                    <th>Risk Skoru</th>
+                                    <th>Seviye</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ses_kayit_1.wav</td>
+                                    <td>2025-01-20</td>
+                                    <td>25</td>
+                                    <td><span class="badge bg-success">Düşük</span></td>
+                                </tr>
+                                <tr>
+                                    <td>konusma_ornegi.mp3</td>
+                                    <td>2025-01-18</td>
+                                    <td>65</td>
+                                    <td><span class="badge bg-warning">Orta</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics Page -->
+        <div id="statistics" class="page">
+            <div class="card">
+                <div class="card-body">
+                    <h2 class="mb-4">İstatistikler</h2>
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="card bg-primary text-white text-center">
+                                <div class="card-body">
+                                    <h3>15</h3>
+                                    <p>Toplam Analiz</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-success text-white text-center">
+                                <div class="card-body">
+                                    <h3>8</h3>
+                                    <p>Düşük Risk</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-warning text-white text-center">
+                                <div class="card-body">
+                                    <h3>5</h3>
+                                    <p>Orta Risk</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card bg-danger text-white text-center">
+                                <div class="card-body">
+                                    <h3>2</h3>
+                                    <p>Yüksek Risk</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let isLoggedIn = false;
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            updateNavigation();
+        }
+
+        function updateNavigation() {
+            const navMenu = document.getElementById('navMenu');
+            if (isLoggedIn) {
+                navMenu.innerHTML = `
+                    <a class="nav-link" href="#" onclick="showPage('dashboard')">Dashboard</a>
+                    <a class="nav-link" href="#" onclick="showPage('analysis')">Analiz</a>
+                    <a class="nav-link" href="#" onclick="showPage('history')">Geçmiş</a>
+                    <a class="nav-link" href="#" onclick="showPage('statistics')">İstatistik</a>
+                    <button class="btn btn-outline-light btn-sm" onclick="logout()">Çıkış</button>
+                `;
+            } else {
+                navMenu.innerHTML = `
+                    <a class="nav-link" href="#" onclick="showPage('login')">Giriş</a>
+                    <a class="nav-link" href="#" onclick="showPage('register')">Kayıt</a>
+                `;
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            isLoggedIn = true;
+            showPage('dashboard');
+            alert('Giriş başarılı!');
+        }
+
+        function handleRegister(event) {
+            event.preventDefault();
+            isLoggedIn = true;
+            showPage('dashboard');
+            alert('Kayıt başarılı!');
+        }
+
+        function logout() {
+            isLoggedIn = false;
+            showPage('home');
+            alert('Çıkış yapıldı!');
+        }
+
+        function simulateAnalysis() {
+            document.getElementById('analysisResult').style.display = 'block';
+            alert('Analiz başlatıldı! Sonuçlar gösteriliyor...');
+        }
+
+        // Initialize
+        updateNavigation();
+    </script>
+</body>
+</html>
