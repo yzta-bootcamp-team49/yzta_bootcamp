@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Test Sayfası</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        button {
+            background: #fff;
+            color: #333;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        button:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Test Başarılı!</h1>
+        <h2>Alzheimer & Parkinson Ses Analiz Sistemi</h2>
+        <p>Bu sayfa başarıyla açıldıysa, HTML dosyalarınız çalışıyor demektir!</p>
+        
+        <button onclick="alert('Butona tıkladınız! Sistem çalışıyor.')">
+            Test Butonu
+        </button>
+        
+        <button onclick="showMessage()">
+            JavaScript Test
+        </button>
+        
+        <div id="message" style="margin-top: 20px; font-size: 18px;"></div>
+    </div>
+
+    <script>
+        function showMessage() {
+            document.getElementById('message').innerHTML = 
+                '✅ JavaScript çalışıyor!<br>✅ HTML çalışıyor!<br>✅ CSS çalışıyor!<br><br>🚀 Sistem tamamen hazır!';
+        }
+        
+        // Sayfa yüklendiğinde otomatik mesaj
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('message').innerHTML = 
+                    '🎯 Sayfa başarıyla yüklendi!<br>Yukarıdaki butonları test edin.';
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
