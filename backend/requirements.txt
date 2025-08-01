@@ -8,3 +8,12 @@ python-jose[cryptography]
 aiofiles
 requests
 jinja2 
+numpy
+python-dotenv
+scikit-learn
+SpeechRecognition
+itsdangerous
+pandas
+librosa
+praat-parselmouth
+scipy

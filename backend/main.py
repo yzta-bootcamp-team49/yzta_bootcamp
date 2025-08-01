@@ -10,12 +10,18 @@ from utils.auth import get_password_hash, verify_password, create_access_token
 from utils.gemini import analyze_audio_with_gemini
 import shutil, os
 from starlette.middleware.sessions import SessionMiddleware
+from utils.alzheimer_model import predict_alzheimer_from_audio
+import os
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="supersecret")
 
 static_dir = os.path.join(os.path.dirname(__file__), "static")
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
+audio_dir = os.path.join(os.path.dirname(__file__), "audio_uploads")
+app.mount("/audio_uploads", StaticFiles(directory=audio_dir), name="audio_uploads")
 templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
 UPLOAD_DIR = os.path.join(os.path.dirname(__file__), "audio_uploads")
 os.makedirs(UPLOAD_DIR, exist_ok=True)
@@ -73,13 +79,27 @@ def get_current_user(request: Request, db: Session):
     return db.query(User).filter(User.id == user_id).first()
 
 # Ana panel
+from datetime import timezone
+import pytz
+
 @app.get("/dashboard", response_class=HTMLResponse)
 def dashboard(request: Request, db: Session = Depends(get_db)):
     user = get_current_user(request, db)
     if not user:
         return RedirectResponse("/", status_code=302)
+
     records = db.query(AudioRecord).filter(AudioRecord.user_id == user.id).all()
+
+    # Türkiye saatine çevir
+    turkey_tz = pytz.timezone("Europe/Istanbul")
+    for r in records:
+        if r.upload_time:
+            if r.upload_time.tzinfo is None:
+                r.upload_time = pytz.utc.localize(r.upload_time)  # Naive datetime ise UTC kabul edip zaman ver
+            r.upload_time = r.upload_time.astimezone(turkey_tz)
+
     return templates.TemplateResponse("dashboard.html", {"request": request, "user": user, "records": records})
+
 
 # Ses yükleme ve analiz
 @app.post("/upload_audio")
@@ -87,15 +107,48 @@ def upload_audio(request: Request, file: UploadFile = File(...), db: Session = D
     user = get_current_user(request, db)
     if not user:
         return RedirectResponse("/", status_code=302)
+
     file_location = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_location, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    risk_score, analysis = analyze_audio_with_gemini(file_location)
-    audio_record = AudioRecord(user_id=user.id, filename=file.filename, risk_score=risk_score, analysis=analysis)
+
+    try:
+        model_pred, model_proba = predict_alzheimer_from_audio(file_location)
+        sinif_etiketleri = {0: "Alzheimer Hastalığı", 1: "Sağlıklı", 2: "Hafif Bilişsel Bozukluk"}
+        etiket = sinif_etiketleri.get(model_pred, "Bilinmiyor")
+
+        risk_score, analysis = analyze_audio_with_gemini(file_location, etiket, model_proba)
+
+        # Gemini'den sadece text kısmını al
+        if isinstance(analysis, dict):
+            try:
+                analysis_text = analysis['candidates'][0]['content']['parts'][0]['text']
+            except Exception:
+                analysis_text = "Analiz verisi işlenemedi."
+        else:
+            analysis_text = str(analysis)
+
+        # Model sonucu ve güven oranını sonuna ekle
+        model_result = f"\n Güven Oranı: {model_proba:.2f}"
+        full_analysis = analysis_text + model_result
+
+    except Exception as e:
+        full_analysis = f"Model çalıştırılamadı: {e}"
+        risk_score = "Bilinmiyor"
+
+    # Veritabanına kaydet
+    audio_record = AudioRecord(
+        user_id=user.id,
+        filename=file.filename,
+        risk_score=risk_score,
+        analysis=full_analysis
+    )
     db.add(audio_record)
     db.commit()
     db.refresh(audio_record)
+
     return RedirectResponse("/dashboard", status_code=302)
+
 
 # Geçmişten silme
 @app.get("/delete/{audio_id}")

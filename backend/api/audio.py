@@ -7,6 +7,7 @@ from utils.auth import create_access_token
 from utils.gemini import analyze_audio_with_gemini
 from fastapi.security import OAuth2PasswordBearer
 import shutil, os
+from utils.alzheimer_model import predict_alzheimer_from_audio
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/user/login")
 router = APIRouter()
@@ -40,7 +41,8 @@ def upload_audio(file: UploadFile = File(...), db: Session = Depends(get_db), cu
     file_location = os.path.join(UPLOAD_DIR, file.filename)
     with open(file_location, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
-    risk_score, analysis = analyze_audio_with_gemini(file_location)
+    model_pred, model_proba = predict_alzheimer_from_audio(file_location)
+    risk_score, analysis = analyze_audio_with_gemini(file_location, model_pred, model_proba)
     audio_record = AudioRecord(
         user_id=current_user.id,
         filename=file.filename,

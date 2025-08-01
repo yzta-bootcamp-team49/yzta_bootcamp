@@ -1,70 +1,201 @@
 {% extends 'layout.html' %}
 {% block content %}
-<div class="container">
+<div class="container fade-in">
     <div class="row mb-4">
         <div class="col-md-8">
-            <div class="card shadow-sm mb-3">
-                <div class="card-body d-flex align-items-center">
-                    <div class="me-4">
-                        <img src="/static/logo.jpeg" width="60"/>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="mb-4">
+                        <h3 class="mb-2 text-primary">Hoşgeldiniz, {{ user.first_name }} {{ user.last_name }}</h3>
+                        <p class="text-muted mb-0"><i class="fas fa-microphone me-2"></i>Ses analizi ile Alzheimer erken teşhisi</p>
                     </div>
-                    <div>
-                        <h4 class="mb-0">Hoşgeldiniz, {{ user.first_name }} {{ user.last_name }}</h4>
-                        <div class="text-muted">Yeni Ses Testi Başlat</div>
+                    
+                    <div class="alert alert-info border-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <strong>Nasıl Çalışır?</strong> Ses dosyanızı yükleyin, yapay zeka teknolojimiz ses özelliklerini analiz ederek Alzheimer riski değerlendirmesi yapar.
                     </div>
                 </div>
             </div>
-            <form method="post" action="/upload_audio" enctype="multipart/form-data" class="mb-4">
-                <div class="input-group">
-                    <input type="file" class="form-control" name="file" accept="audio/*" required>
-                    <button class="btn btn-primary" type="submit">Yükle & Analiz Et</button>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">
+                        <i class="fas fa-upload me-2 text-primary"></i>Ses Dosyası Yükle
+                    </h5>
+                    <form method="post" action="/upload_audio" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="audioFile" class="form-label">Ses dosyanızı seçin (WAV)</label>
+                            <input type="file" class="form-control" id="audioFile" name="file" accept="audio/*" required>
+                            <div class="form-text">
+                                <i class="fas fa-info-circle me-1"></i>
+                                En iyi sonuçlar için 30 saniye - 2 dakika arası konuşma kayıtları kullanın.
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg w-100" type="submit">
+                            <i class="fas fa-brain me-2"></i>Analiz Et
+                        </button>
+                    </form>
                 </div>
-            </form>
-            <div class="card shadow-sm">
-                <div class="card-header bg-info text-white">Geçmiş Ses Testleri</div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-history me-2 text-primary"></i>Geçmiş Ses Testleri
+                    </h5>
+                </div>
                 <div class="card-body p-0">
-                    <table class="table mb-0">
-                        <thead>
-                            <tr>
-                                <th>Tarih</th>
-                                <th>Dosya</th>
-                                <th>Risk Skoru</th>
-                                <th>Analiz</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {% for r in records %}
-                            <tr>
-                                <td>{{ r.upload_time.strftime('%d.%m.%Y %H:%M') }}</td>
-                                <td><audio controls src="/static/{{ r.filename }}" style="width:120px"></audio></td>
-                                <td>{{ r.risk_score }}</td>
-                                <td>{{ r.analysis }}</td>
-                                <td><a href="/delete/{{ r.id }}" class="btn btn-sm btn-danger">Sil</a></td>
-                            </tr>
-                        {% else %}
-                            <tr><td colspan="5" class="text-center">Kayıt yok</td></tr>
-                        {% endfor %}
-                        </tbody>
-                    </table>
+                    {% if records %}
+                        <div class="table-responsive">
+                            <table class="table mb-0">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fas fa-calendar me-1"></i>Tarih</th>
+                                        <th><i class="fas fa-file-audio me-1"></i>Ses Dosyası</th>
+                                        <th><i class="fas fa-chart-line me-1"></i>Sonuç</th>
+                                        <th><i class="fas fa-cog me-1"></i>İşlemler</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for r in records %}
+                                    <tr>
+                                        <td>
+                                            <small class="text-muted">{{ r.upload_time.strftime('%d.%m.%Y') }}</small><br>
+                                            <small>{{ r.upload_time.strftime('%H:%M') }}</small>
+                                        </td>
+                                        <td>
+                                            <audio controls src="/audio_uploads/{{ r.filename }}" style="width:150px; height:35px;"></audio>
+                                            <br><small class="text-muted">{{ r.filename }}</small>
+                                        </td>
+                                        <td>
+                                            {% if r.risk_score == 'Alzheimer Hastalığı' %}
+                                                <span class="badge bg-danger"><i class="fas fa-exclamation-triangle me-1"></i>Yüksek Risk</span>
+                                            {% elif r.risk_score == 'Sağlıklı' %}
+                                                <span class="badge bg-success"><i class="fas fa-check-circle me-1"></i>Sağlıklı</span>
+                                            {% elif r.risk_score == 'Hafif Bilişsel Bozukluk' %}
+                                                <span class="badge bg-warning"><i class="fas fa-exclamation-circle me-1"></i>Orta Risk</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">{{ r.risk_score }}</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            <a href="/delete/{{ r.id }}" class="btn btn-sm btn-outline-danger" onclick="return confirm('Bu kaydı silmek istediğinizden emin misiniz?')">
+                                                <i class="fas fa-trash me-1"></i>Sil
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" class="border-0 pt-0">
+                                            <div class="card border-0 bg-light">
+                                                <div class="card-body py-3">
+                                                    <h6 class="text-primary mb-2">
+                                                        <i class="fas fa-clipboard-list me-2"></i>Detaylı Analiz Raporu
+                                                    </h6>
+                                                    <div class="analysis-content">
+                                                        {{ r.analysis|replace('\n', '<br>')|safe }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    {% else %}
+                        <div class="text-center py-5">
+                            <i class="fas fa-microphone-slash fa-3x text-muted mb-3"></i>
+                            <h5 class="text-muted">Henüz test yapılmamış</h5>
+                            <p class="text-muted">İlk ses analizinizi yapmak için yukarıdan dosya yükleyin.</p>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card shadow-sm mb-3">
-                <div class="card-header">Kullanıcı Bilgileri</div>
-                <div class="card-body">
-                    <div><b>Ad Soyad:</b> {{ user.first_name }} {{ user.last_name }}</div>
-                    <div><b>E-posta:</b> {{ user.email }}</div>
-                    <div><b>Telefon:</b> {{ user.phone }}</div>
+            <!-- User Profile Card -->
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <div class="profile-avatar mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <div class="default-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                    </div>
+                    <h5 class="card-title mb-1">{{ user.first_name }} {{ user.last_name }}</h5>
+                    <p class="text-muted mb-3">Hasta Profili</p>
+                    
+                    <div class="row text-start">
+                        <div class="col-12 mb-2">
+                            <i class="fas fa-envelope text-primary me-2"></i>
+                            <small class="text-muted">E-posta:</small><br>
+                            <span class="ms-4">{{ user.email }}</span>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <i class="fas fa-phone text-primary me-2"></i>
+                            <small class="text-muted">Telefon:</small><br>
+                            <span class="ms-4">{{ user.phone }}</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card shadow-sm">
-                <div class="card-header">İstatistik</div>
-                <div class="card-body">
-                    <div class="mb-2"><b>Toplam Test:</b> {{ records|length }}</div>
-                    <div class="mb-2"><b>Yüksek Riskli:</b> {{ records|selectattr('risk_score', 'equalto', 'Yüksek')|list|length }}</div>
-                    <div class="mb-2"><b>Düşük Riskli:</b> {{ records|selectattr('risk_score', 'equalto', 'Düşük')|list|length }}</div>
+            
+            <!-- Statistics Cards -->
+            <div class="row">
+                <div class="col-12 mb-3">
+                    <div class="stats-card">
+                        <div class="d-flex align-items-center">
+                            <div class="me-3">
+                                <i class="fas fa-chart-bar fa-2x"></i>
+                            </div>
+                            <div>
+                                <div class="stats-number">{{ records|length }}</div>
+                                <div>Toplam Test</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                <i class="fas fa-chart-pie me-2 text-primary"></i>Risk Dağılımı
+                            </h6>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-circle text-success me-2"></i>Sağlıklı</span>
+                                    <span class="badge bg-success">{{ records|selectattr('risk_score', 'equalto', 'Sağlıklı')|list|length }}</span>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-circle text-warning me-2"></i>Orta Risk</span>
+                                    <span class="badge bg-warning">{{ records|selectattr('risk_score', 'equalto', 'Hafif Bilişsel Bozukluk')|list|length }}</span>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span><i class="fas fa-circle text-danger me-2"></i>Yüksek Risk</span>
+                                    <span class="badge bg-danger">{{ records|selectattr('risk_score', 'equalto', 'Alzheimer Hastalığı')|list|length }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                <i class="fas fa-lightbulb me-2 text-primary"></i>Öneriler
+                            </h6>
+                            <div class="alert alert-info border-0 mb-0">
+                                <small>
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Düzenli ses testleri erken teşhis için önemlidir. Ayda bir test yapmanızı öneririz.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

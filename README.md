@@ -1,6 +1,6 @@
 # yzta_bootcamp
 
-🚀🚀Alzheimer & Parkinson Ses Analiz Web Uygulaması🚀🚀
+🚀🚀Alzheimer Ses Analiz Web Uygulaması🚀🚀
 
 
 
@@ -25,12 +25,12 @@
 --------------------  
 🎯Ürün İsmi:
 
-Alzheimer & Parkinson Ses Analiz Web Uygulaması
+Alzheimer Ses Analiz Web Uygulaması
 
 --------------------
 🎯Ürün Açıklaması:
 
-Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine yardımcı olmak amacıyla geliştirilmiştir. Kullanıcılar ses kayıtlarını sisteme yükleyerek yapay zeka destekli analiz gerçekleştirebilir. Analiz sonucunda kullanıcılara risk skoru ve açıklayıcı geri bildirimler sunulur. Tüm süreç kullanıcı dostu, modern bir web arayüzü ile yönetilir.
+Bu web uygulaması, Alzheimer hastalıklarının erken teşhisine yardımcı olmak amacıyla geliştirilmiştir. Kullanıcılar ses kayıtlarını sisteme yükleyerek yapay zeka destekli analiz gerçekleştirebilir. Analiz sonucunda kullanıcılara risk skoru ve açıklayıcı geri bildirimler sunulur. Tüm süreç kullanıcı dostu, modern bir web arayüzü ile yönetilir.
 
 --------------------
 🎯Ürün Özellikleri:
@@ -56,13 +56,13 @@ Bu web uygulaması, Alzheimer ve Parkinson hastalıklarının erken teşhisine y
 
 •	 Nörolojik hastalıklar için ön tanı almak isteyen bireyler
 
-•	Alzheimer/Parkinson hastalığı geçmişi olan kullanıcılar
+•	 Alzheimer hastalığı geçmişi olan kullanıcılar
 
 •	 Doktorlar, klinikler ve sağlık uzmanları
 
 •	 Sağlık alanında araştırma yapan akademisyenler
 
-•	Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
+•	 Dijital sağlık uygulamaları ile ilgilenen teknoloji kullanıcıları
 
 --------------------
 ⚙️ Teknik Detaylar:
