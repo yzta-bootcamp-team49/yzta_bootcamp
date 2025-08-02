@@ -301,11 +301,11 @@ Karmaşıklık düzeyi daha düşük olan görsel ve UI düzenlemeleri düşük 
 
 📌Screenshot:
 
-![WhatsApp Görsel 2025-07-23 saat 17 13 40_71ff9eb4](https://github.com/user-attachments/assets/2c553c4e-48fb-4e8a-b1b4-614a4a2b8ed1)
+<img width="1490" height="710" alt="image" src="https://github.com/user-attachments/assets/37b6ae07-522d-4074-af72-5941d541f4cc" />
+<img width="1561" height="712" alt="image" src="https://github.com/user-attachments/assets/26d0a9c1-fb90-422b-8827-8d28e1aa543f" />
+<img width="1507" height="697" alt="image" src="https://github.com/user-attachments/assets/f4dae07a-a6fa-46d2-a220-2ad275aa3b7b" />
 
-![WhatsApp Görsel 2025-07-23 saat 17 13 50_f6913e11](https://github.com/user-attachments/assets/70429fb2-f31c-4155-a47b-cd05a2b86774)
 
-![WhatsApp Görsel 2025-07-23 saat 17 12 07_26ceb62f](https://github.com/user-attachments/assets/6386b2a0-562f-4410-9f4c-0a99c3c8b24e)
 
 
 --------------------
