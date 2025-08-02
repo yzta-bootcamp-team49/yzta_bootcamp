@@ -95,7 +95,7 @@ Bu web uygulaması, Alzheimer hastalıklarının erken teşhisine yardımcı olm
 
 📌Tahmin Edilen Tamamlanacak Puan:
 
-Toplam 21 puanlık iş hedeflenmiştir. Puanlama Planning Poker yöntemi ile belirlenmiştir.
+Toplam 20 puanlık iş hedeflenmiştir. Puanlama Planning Poker yöntemi ile belirlenmiştir.
 
 --------------------
 📌Tahmin Mantığı:
@@ -256,3 +256,106 @@ Sprint sonunda gerçekleştirilen takım değerlendirmesinde aşağıdaki görü
 • Backend ve frontend geliştirme arasında daha net bir sınır çizilmesi gerektiği fark edildi. Bu doğrultuda görev dağılımı yeniden gözden geçirilecek.
 
 • Kod revizyonları, sprint ortasında yapılacak ara kontrollerle desteklenecek.
+
+
+°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
+
+
+📝 Sprint 3
+
+
+📌 Tahmin Edilen Tamamlanacak Puan:
+
+Sprint 3 için toplam 35 puanlık iş belirlenmiştir. Bu sprintin amacı, önceki sprintlerden kalan görevleri tamamlamak, UI/UX iyileştirmeleri yapmak ve modeli son testlerden geçirerek projeyi bitirmek olmuştur.
+
+--------------------
+
+📌 Tahmin Mantığı:
+
+Bu sprintte planlanan işler, önceden başlatılıp tamamlanamayan modüller ve son iyileştirmelerden oluşmuştur.
+Kullanıcı arayüzü düzenlemeleri, analiz silme özelliği ve admin panel tasarımı gibi görevler dahil edilmiştir.
+Karmaşıklık düzeyi daha düşük olan görsel ve UI düzenlemeleri düşük puan alırken, admin panel geliştirme gibi görevler daha yüksek puanla değerlendirilmiştir..
+
+--------------------
+
+📌 Sprint 3 Notları :
+
+-Frontend iyileştirmeleri tamamlandı; responsive tasarım ve modern UI düzenlemeleri yapıldı.
+
+-Product Backlog üzerinde detaylandırılarak görevler tamamlandı.
+
+-Model son testleri yapıldı, doğruluk oranı ve performans raporlandı.
+
+-Proje teslim aşamasına getirildi; final sunumu için hazırlıklar başlatıldı.
+
+
+--------------------
+
+📌Daily/Weekly Scrum:
+
+<img width="433" height="392" alt="image" src="https://github.com/user-attachments/assets/6b0de61a-e281-41fc-b9ac-683c1f0c77ce" />
+<img width="431" height="32" alt="image" src="https://github.com/user-attachments/assets/7a72430e-7b4f-45f0-b78f-0f3cd3db3866" />
+<img width="449" height="372" alt="image" src="https://github.com/user-attachments/assets/c44c4757-e8e2-4de0-944d-31fdad9d41ae" />
+
+--------------------
+
+📌Screenshot:
+
+![WhatsApp Görsel 2025-07-23 saat 17 13 40_71ff9eb4](https://github.com/user-attachments/assets/2c553c4e-48fb-4e8a-b1b4-614a4a2b8ed1)
+
+![WhatsApp Görsel 2025-07-23 saat 17 13 50_f6913e11](https://github.com/user-attachments/assets/70429fb2-f31c-4155-a47b-cd05a2b86774)
+
+![WhatsApp Görsel 2025-07-23 saat 17 12 07_26ceb62f](https://github.com/user-attachments/assets/6386b2a0-562f-4410-9f4c-0a99c3c8b24e)
+
+
+--------------------
+
+📌 Sprint 3 Board:
+
+<img width="1382" height="295" alt="image" src="https://github.com/user-attachments/assets/ba8d0693-fc0e-4793-a48f-0f70cc43544d" />
+
+
+--------------------
+
+📌Sprint Backlog URl
+https://miro.com/app/board/uXjVIgwdcec=/
+
+--------------------
+
+📌 Sprint 3 Review:
+
+Sprint 3, projenin tamamlanma aşaması olarak planlandı ve büyük ölçüde başarıyla tamamlandı.
+Bu sprintte ana odak noktası, model entegrasyonu, analiz sonuç ekranının tamamlanması, detaylı rapor üretimi ve admin panelinin ilk sürümünün hazırlanması oldu.
+
+Tamamlanan işler:
+
+•Makine öğrenmesi modeli backend’e entegre edildi ve Alzheimer, Hafif Bilişsel Bozukluk ve Sağlıklı olarak 3 sınıflı tahmin yapılabiliyor.
+
+•Kullanıcı ses yükleme ve analiz süreci tamamen sorunsuz hale getirildi.
+
+•Detaylı analiz raporu Gemini API ile oluşturulup, kullanıcıya açıklama ve tavsiye şeklinde gösterildi.
+
+•Frontend iyileştirmeleri tamamlandı; responsive tasarım eklendi.
+
+•Parkinson analizi veri seti sorunu nedeniyle proje kapsamından çıkarıldı.
+
+•Proje sunuma hazır hale getirildi; final testleri ve hata düzeltmeleri yapıldı.
+
+--------------------
+
+📌Sprint 3 Retrospective:
+
+Sprint sonunda ekip tarafından yapılan değerlendirmelerde aşağıdaki noktalar öne çıktı:
+
+• Ekip çalışması ve iletişim güçlü şekilde devam etti, tüm kritik işlevler başarıyla tamamlandı.
+
+• Model entegrasyonu ve sınıflandırma doğruluğu hedeflenen seviyeye ulaştı, proje ana amacı gerçekleşti.
+
+• Gemini API entegrasyonu sayesinde analiz raporlarının kalitesi arttı, kullanıcıya değer katan bir çıktı sağlandı.
+
+• Parkinson tespit modülü için gerekli veri setleri sağlanamadı; bu nedenle kapsamdan çıkarıldı.
+
+• Kod gözden geçirme (code review) süreci, sprint ortasında yapıldığı için kalite kontrol daha iyi sağlandı.
+
+
+
